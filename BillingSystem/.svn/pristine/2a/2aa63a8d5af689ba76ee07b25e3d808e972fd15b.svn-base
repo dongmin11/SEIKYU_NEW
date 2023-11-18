@@ -1,0 +1,79 @@
+﻿namespace BillingSystem.Models
+{
+    /// <summary>
+    /// 会社モデル
+    /// </summary>
+    public class CompanyModel
+    {
+        /// <summary>
+        /// ID
+        /// </summary>
+        public int ID { get; set; }
+        /// <summary>
+        /// 会社名
+        /// </summary>
+        public string CompanyName { get; set; }
+        /// <summary>
+        /// 郵便番号
+        /// </summary>
+        public string PostNo { get; set; }
+        /// <summary>
+        /// 住所
+        /// </summary>
+        public string Address { get; set; }
+        /// <summary>
+        /// 電話番号
+        /// </summary>
+        public string Tel { get; set; }
+        /// <summary>
+        /// 消費税率
+        /// </summary>
+        public decimal Tax { get; set; }
+        /// <summary>
+        /// 端数
+        /// </summary>
+        public int Fraction { get; set; }
+        /// <summary>
+        /// 銀行名
+        /// </summary>
+        public string BankName { get; set; }
+        /// <summary>
+        /// 支店名
+        /// </summary>
+        public string BranchName { get; set; }
+        /// <summary>
+        /// 口座番号
+        /// </summary>
+        public string AccountNo { get; set; }
+        /// <summary>
+        /// 名義
+        /// </summary>
+        public string AccountName { get; set; }
+
+        /// <summary>
+        /// インボイスNo
+        /// </summary>
+        public string InvoiceNo { get; set; }
+
+        /// <summary>
+        /// 会社印ファイル
+        /// </summary>
+        public decimal CompanySealID { get; set; }
+        /// <summary>
+        /// 会社印ファイル名
+        /// </summary>
+        public string CompanySealName { get; set; }
+        /// <summary>
+        /// LockVer
+        /// </summary>
+        public int LockVer { get; set; }
+        /// <summary>
+        /// 作成者ID
+        /// </summary>
+        public int CreatUserID { get; set; }
+        /// <summary>
+        /// 更新者ID
+        /// </summary>
+        public int UpdateUserID { get; set; }
+    }
+}

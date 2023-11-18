@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BillingSystem.Models
+{
+    public class SeikyuEditPaymentTypeModel
+    {
+        /// <summary>
+        /// 支払い区分名
+        /// </summary>
+        public string PaymentTypeName { get; set; }
+        public string Type { get; set; }
+    }
+}

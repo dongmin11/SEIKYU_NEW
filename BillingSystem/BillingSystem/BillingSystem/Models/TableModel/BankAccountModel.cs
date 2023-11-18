@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BillingSystem.Models
+{
+    /// <summary>
+    /// 自社銀行口座マスタモデル
+    /// </summary>
+    public class BankAccountModel
+    {
+        public string ID { get; set; }
+
+        /// <summary>
+        /// 銀行コード
+        /// </summary>
+        public string BankCode { get; set; }
+
+        /// <summary>
+        /// 銀行名
+        /// </summary>
+        public string BankName { get; set; }
+
+        /// <summary>
+        /// 支店コード
+        /// </summary>
+        public string BranchCode { get; set; }
+
+        /// <summary>
+        /// 支店名
+        /// </summary>
+        public string BranchName { get; set; }
+
+        /// <summary>
+        /// 口座番号
+        /// </summary>
+        public string AccountNo { get; set; }
+
+        /// <summary>
+        /// 名義
+        /// </summary>
+        public string AccountName { get; set; }
+
+        /// <summary>
+        /// 削除フラグ
+        /// </summary>
+        public int DeleteFlag { get; set; }
+
+        /// <summary>
+        /// LockVer
+        /// </summary>
+        public int LockVer { get; set; }
+    }
+}

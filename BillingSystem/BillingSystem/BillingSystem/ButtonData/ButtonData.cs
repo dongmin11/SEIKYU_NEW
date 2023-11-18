@@ -1,0 +1,291 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BillingSystem.Models;
+
+namespace BillingSystem
+{
+    /// <summary>
+    /// 各画面ボタン定義
+    /// </summary>
+    public static class ButtonData
+    {
+        #region ユーザーリスト画面のボタン情報
+        /// <summary>
+        /// ユーザーリスト画面のボタン情報
+        /// </summary>
+        /// <returns></returns>
+        public static List<ButtonInfo> GetUserFrm()
+        {
+            List<ButtonInfo> results = new List<ButtonInfo>();
+            ButtonInfo button = new ButtonInfo();
+            button.ButtonName = " btnCreateNew";
+            button.ButtonText = "新規作成";
+            results.Add(button);
+            button = new ButtonInfo();
+            button.ButtonName = "btnEdit";
+            button.ButtonText = "編集";
+            results.Add(button);
+
+            return results;
+        }
+        #endregion
+
+        #region 請求一覧画面のボタン情報
+        /// <summary>
+        /// 請求一覧画面のボタン情報
+        /// </summary>
+        /// <returns></returns>
+        public static List<ButtonInfo> GetSeikyuFrm()
+        {
+            List<ButtonInfo> results = new List<ButtonInfo>();
+            ButtonInfo button = new ButtonInfo();
+            button.ButtonName = "BtnDetail";
+            button.ButtonText = "詳細";
+            results.Add(button);
+            button = new ButtonInfo();
+            button.ButtonName = "BtnInsert";
+            button.ButtonText = "新規作成";
+            results.Add(button);
+            button = new ButtonInfo();
+            button.ButtonName = "BtnCopy";
+            button.ButtonText = "新規複写";
+            results.Add(button);
+            button = new ButtonInfo();
+            button.ButtonName = "BtnPrint";
+            button.ButtonText = "印刷";
+            results.Add(button);
+            return results;
+        }
+        #endregion
+        
+        #region 請求書作成画面のボタン情報
+        /// <summary>
+        /// 請求書作成画面のボタン情報
+        /// </summary>
+        /// <param name="status">請求書ステータス</param>
+        /// <param name="department">部署情報</param>
+        /// <returns></returns>
+        public static List<ButtonInfo> GetSeikyuEditFrm(string status, string department)
+        {
+            List<ButtonInfo> results = new List<ButtonInfo>();
+            ButtonInfo buttion = new ButtonInfo();
+
+            //status:0：作成中　1：承認待ち　2:承認済　3:完了　9:送付済
+            switch (status)
+            {
+                case "0":
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = string.Empty;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnApproval";
+                    buttion.ButtonText = "承認";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnComplete";
+                    buttion.ButtonText = "完了";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnSended";
+                    buttion.ButtonText = "送付済";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnSave";
+                    buttion.ButtonText = "保存";
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnUpdate";
+                    buttion.ButtonText = "保存(作成済)";
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnDelete";
+                    buttion.ButtonText = "削除";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+                    break;
+                case "1":
+                    //1：承認待ち
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = string.Empty;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnApproval";
+                    buttion.ButtonText = "承認";
+                    buttion.ButtonEnabled = department == "2" || department == "3" ? true : false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnComplete";
+                    buttion.ButtonText = "完了";
+                    buttion.ButtonEnabled = false; ;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnSended";
+                    buttion.ButtonText = "送付済";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnSave";
+                    buttion.ButtonText = "保存";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnUpdate";
+                    buttion.ButtonText = "保存(作成済)";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnDelete";
+                    buttion.ButtonText = "削除";
+                    buttion.ButtonEnabled = true;
+                    results.Add(buttion);
+                    break;
+                case "2":
+                    // 2:承認済 3:完了 9:送付済
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = string.Empty;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnApproval";
+                    buttion.ButtonText = "承認(取消)";
+                    buttion.ButtonEnabled = department == "2" || department == "3" ? true : false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnComplete";
+                    buttion.ButtonText = "完了";
+                    buttion.ButtonEnabled = department == "3" ? true : false; ;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnSended";
+                    buttion.ButtonText = "送付済";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnSave";
+                    buttion.ButtonText = "保存";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnUpdate";
+                    buttion.ButtonText = "保存(作成済)";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnDelete";
+                    buttion.ButtonText = "削除";
+                    buttion.ButtonEnabled = true;
+                    results.Add(buttion);
+                    break;
+                case "3":
+                    //　3:完了 9:送付済
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = string.Empty;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnApproval";
+                    buttion.ButtonText = "承認(取消)";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnComplete";
+                    buttion.ButtonText = "完了(取消)";
+                    buttion.ButtonEnabled = department == "3" ? true : false; ;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnSended";
+                    buttion.ButtonText = "送付済";
+                    buttion.ButtonEnabled = true;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnSave";
+                    buttion.ButtonText = "保存";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnUpdate";
+                    buttion.ButtonText = "保存(作成済)";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnDelete";
+                    buttion.ButtonText = "削除";
+                    buttion.ButtonEnabled = true;
+                    results.Add(buttion);
+                    break;
+                case "9":
+                    //　9:送付済
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = string.Empty;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = string.Empty;
+                    buttion.ButtonText = "承認(取消)";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnComplete";
+                    buttion.ButtonText = "完了(取消)";
+                    buttion.ButtonEnabled = false; ;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnSended";
+                    buttion.ButtonText = "送付済(取消)";
+                    buttion.ButtonEnabled = department == "3" ? true : false; ;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnSave";
+                    buttion.ButtonText = "保存";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnUpdate";
+                    buttion.ButtonText = "保存(作成済)";
+                    buttion.ButtonEnabled = false;
+                    results.Add(buttion);
+
+                    buttion = new ButtonInfo();
+                    buttion.ButtonName = "BtnDelete";
+                    buttion.ButtonText = "削除";
+                    buttion.ButtonEnabled = true;
+                    results.Add(buttion);
+                    break;
+            }
+            return results;
+        }
+        #endregion
+    }
+}

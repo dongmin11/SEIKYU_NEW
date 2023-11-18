@@ -1,0 +1,404 @@
+﻿
+namespace BillingSystem.Master
+{
+    partial class CompanyDetailFrm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.lbCompanyName = new System.Windows.Forms.Label();
+            this.txtLoginID = new System.Windows.Forms.TextBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.lbPostNo = new System.Windows.Forms.Label();
+            this.lbAddress = new System.Windows.Forms.Label();
+            this.txtTel = new System.Windows.Forms.TextBox();
+            this.lbTel = new System.Windows.Forms.Label();
+            this.lbTax = new System.Windows.Forms.Label();
+            this.lbSealFile = new System.Windows.Forms.Label();
+            this.txtSealFilePath = new System.Windows.Forms.TextBox();
+            this.cbTax = new System.Windows.Forms.ComboBox();
+            this.btnOpenFile = new System.Windows.Forms.Button();
+            this.ofdSealFile = new System.Windows.Forms.OpenFileDialog();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbFraction = new System.Windows.Forms.ComboBox();
+            this.txtBankName = new System.Windows.Forms.TextBox();
+            this.lbBankName = new System.Windows.Forms.Label();
+            this.txtBranchName = new System.Windows.Forms.TextBox();
+            this.lbBranchName = new System.Windows.Forms.Label();
+            this.txtAccountNo = new System.Windows.Forms.TextBox();
+            this.lbAccountNo = new System.Windows.Forms.Label();
+            this.txtAccountName = new System.Windows.Forms.TextBox();
+            this.lbAccountName = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Location = new System.Drawing.Point(0, 483);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(609, 52);
+            this.panel1.TabIndex = 0;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(509, 8);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(89, 37);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "登録";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(16, 8);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(79, 37);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.Text = "閉じる";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // lbCompanyName
+            // 
+            this.lbCompanyName.AutoSize = true;
+            this.lbCompanyName.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.lbCompanyName.Location = new System.Drawing.Point(68, 38);
+            this.lbCompanyName.Name = "lbCompanyName";
+            this.lbCompanyName.Size = new System.Drawing.Size(56, 16);
+            this.lbCompanyName.TabIndex = 1;
+            this.lbCompanyName.Text = "会社名";
+            // 
+            // txtLoginID
+            // 
+            this.txtLoginID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLoginID.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.txtLoginID.Location = new System.Drawing.Point(132, 35);
+            this.txtLoginID.MaxLength = 100;
+            this.txtLoginID.Name = "txtLoginID";
+            this.txtLoginID.Size = new System.Drawing.Size(420, 23);
+            this.txtLoginID.TabIndex = 2;
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUserName.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.txtUserName.Location = new System.Drawing.Point(132, 65);
+            this.txtUserName.MaxLength = 10;
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(420, 23);
+            this.txtUserName.TabIndex = 4;
+            // 
+            // lbPostNo
+            // 
+            this.lbPostNo.AutoSize = true;
+            this.lbPostNo.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbPostNo.Location = new System.Drawing.Point(52, 68);
+            this.lbPostNo.Name = "lbPostNo";
+            this.lbPostNo.Size = new System.Drawing.Size(72, 16);
+            this.lbPostNo.TabIndex = 3;
+            this.lbPostNo.Text = "郵便番号";
+            // 
+            // lbAddress
+            // 
+            this.lbAddress.AutoSize = true;
+            this.lbAddress.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.lbAddress.Location = new System.Drawing.Point(84, 98);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Size = new System.Drawing.Size(40, 16);
+            this.lbAddress.TabIndex = 5;
+            this.lbAddress.Text = "住所";
+            // 
+            // txtTel
+            // 
+            this.txtTel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTel.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.txtTel.Location = new System.Drawing.Point(132, 221);
+            this.txtTel.MaxLength = 15;
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(420, 23);
+            this.txtTel.TabIndex = 8;
+            // 
+            // lbTel
+            // 
+            this.lbTel.AutoSize = true;
+            this.lbTel.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.lbTel.Location = new System.Drawing.Point(52, 224);
+            this.lbTel.Name = "lbTel";
+            this.lbTel.Size = new System.Drawing.Size(72, 16);
+            this.lbTel.TabIndex = 7;
+            this.lbTel.Text = "電話番号";
+            // 
+            // lbTax
+            // 
+            this.lbTax.AutoSize = true;
+            this.lbTax.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.lbTax.Location = new System.Drawing.Point(52, 257);
+            this.lbTax.Name = "lbTax";
+            this.lbTax.Size = new System.Drawing.Size(72, 16);
+            this.lbTax.TabIndex = 9;
+            this.lbTax.Text = "消費税率";
+            // 
+            // lbSealFile
+            // 
+            this.lbSealFile.AutoSize = true;
+            this.lbSealFile.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.lbSealFile.Location = new System.Drawing.Point(20, 430);
+            this.lbSealFile.Name = "lbSealFile";
+            this.lbSealFile.Size = new System.Drawing.Size(104, 16);
+            this.lbSealFile.TabIndex = 13;
+            this.lbSealFile.Text = "捺印ファイル";
+            // 
+            // txtSealFilePath
+            // 
+            this.txtSealFilePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSealFilePath.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.txtSealFilePath.Location = new System.Drawing.Point(132, 430);
+            this.txtSealFilePath.Name = "txtSealFilePath";
+            this.txtSealFilePath.ReadOnly = true;
+            this.txtSealFilePath.Size = new System.Drawing.Size(342, 23);
+            this.txtSealFilePath.TabIndex = 20;
+            // 
+            // cbTax
+            // 
+            this.cbTax.DisplayMember = "Name";
+            this.cbTax.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTax.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.cbTax.FormattingEnabled = true;
+            this.cbTax.Location = new System.Drawing.Point(132, 253);
+            this.cbTax.Name = "cbTax";
+            this.cbTax.Size = new System.Drawing.Size(126, 24);
+            this.cbTax.TabIndex = 21;
+            this.cbTax.ValueMember = "Code";
+            // 
+            // btnOpenFile
+            // 
+            this.btnOpenFile.Location = new System.Drawing.Point(483, 428);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(72, 27);
+            this.btnOpenFile.TabIndex = 22;
+            this.btnOpenFile.Text = "参照";
+            this.btnOpenFile.UseVisualStyleBackColor = true;
+            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
+            // 
+            // ofdSealFile
+            // 
+            this.ofdSealFile.FileName = "ofdSealFile";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAddress.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.txtAddress.Location = new System.Drawing.Point(132, 98);
+            this.txtAddress.MaxLength = 125;
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(420, 110);
+            this.txtAddress.TabIndex = 27;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.label1.Location = new System.Drawing.Point(276, 257);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 16);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "端数";
+            // 
+            // cbFraction
+            // 
+            this.cbFraction.DisplayMember = "Name";
+            this.cbFraction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFraction.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.cbFraction.FormattingEnabled = true;
+            this.cbFraction.Location = new System.Drawing.Point(322, 253);
+            this.cbFraction.Name = "cbFraction";
+            this.cbFraction.Size = new System.Drawing.Size(126, 24);
+            this.cbFraction.TabIndex = 31;
+            this.cbFraction.ValueMember = "Code";
+            // 
+            // txtBankName
+            // 
+            this.txtBankName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBankName.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.txtBankName.Location = new System.Drawing.Point(132, 289);
+            this.txtBankName.MaxLength = 50;
+            this.txtBankName.Name = "txtBankName";
+            this.txtBankName.Size = new System.Drawing.Size(420, 23);
+            this.txtBankName.TabIndex = 33;
+            // 
+            // lbBankName
+            // 
+            this.lbBankName.AutoSize = true;
+            this.lbBankName.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.lbBankName.Location = new System.Drawing.Point(68, 292);
+            this.lbBankName.Name = "lbBankName";
+            this.lbBankName.Size = new System.Drawing.Size(56, 16);
+            this.lbBankName.TabIndex = 32;
+            this.lbBankName.Text = "銀行名";
+            // 
+            // txtBranchName
+            // 
+            this.txtBranchName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBranchName.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.txtBranchName.Location = new System.Drawing.Point(132, 323);
+            this.txtBranchName.MaxLength = 50;
+            this.txtBranchName.Name = "txtBranchName";
+            this.txtBranchName.Size = new System.Drawing.Size(420, 23);
+            this.txtBranchName.TabIndex = 35;
+            // 
+            // lbBranchName
+            // 
+            this.lbBranchName.AutoSize = true;
+            this.lbBranchName.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.lbBranchName.Location = new System.Drawing.Point(68, 326);
+            this.lbBranchName.Name = "lbBranchName";
+            this.lbBranchName.Size = new System.Drawing.Size(56, 16);
+            this.lbBranchName.TabIndex = 34;
+            this.lbBranchName.Text = "支店名";
+            // 
+            // txtAccountNo
+            // 
+            this.txtAccountNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAccountNo.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.txtAccountNo.Location = new System.Drawing.Point(132, 357);
+            this.txtAccountNo.MaxLength = 10;
+            this.txtAccountNo.Name = "txtAccountNo";
+            this.txtAccountNo.Size = new System.Drawing.Size(420, 23);
+            this.txtAccountNo.TabIndex = 37;
+            // 
+            // lbAccountNo
+            // 
+            this.lbAccountNo.AutoSize = true;
+            this.lbAccountNo.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.lbAccountNo.Location = new System.Drawing.Point(52, 360);
+            this.lbAccountNo.Name = "lbAccountNo";
+            this.lbAccountNo.Size = new System.Drawing.Size(72, 16);
+            this.lbAccountNo.TabIndex = 36;
+            this.lbAccountNo.Text = "口座番号";
+            // 
+            // txtAccountName
+            // 
+            this.txtAccountName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAccountName.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.txtAccountName.Location = new System.Drawing.Point(132, 388);
+            this.txtAccountName.MaxLength = 50;
+            this.txtAccountName.Name = "txtAccountName";
+            this.txtAccountName.Size = new System.Drawing.Size(420, 23);
+            this.txtAccountName.TabIndex = 39;
+            // 
+            // lbAccountName
+            // 
+            this.lbAccountName.AutoSize = true;
+            this.lbAccountName.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F);
+            this.lbAccountName.Location = new System.Drawing.Point(84, 391);
+            this.lbAccountName.Name = "lbAccountName";
+            this.lbAccountName.Size = new System.Drawing.Size(40, 16);
+            this.lbAccountName.TabIndex = 38;
+            this.lbAccountName.Text = "名義";
+            // 
+            // CompanyDetailFrm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.ClientSize = new System.Drawing.Size(610, 535);
+            this.Controls.Add(this.txtAccountName);
+            this.Controls.Add(this.lbAccountName);
+            this.Controls.Add(this.txtAccountNo);
+            this.Controls.Add(this.lbAccountNo);
+            this.Controls.Add(this.txtBranchName);
+            this.Controls.Add(this.lbBranchName);
+            this.Controls.Add(this.txtBankName);
+            this.Controls.Add(this.lbBankName);
+            this.Controls.Add(this.cbFraction);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtAddress);
+            this.Controls.Add(this.btnOpenFile);
+            this.Controls.Add(this.lbPostNo);
+            this.Controls.Add(this.lbCompanyName);
+            this.Controls.Add(this.cbTax);
+            this.Controls.Add(this.txtSealFilePath);
+            this.Controls.Add(this.lbSealFile);
+            this.Controls.Add(this.lbTax);
+            this.Controls.Add(this.txtTel);
+            this.Controls.Add(this.lbTel);
+            this.Controls.Add(this.lbAddress);
+            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.txtLoginID);
+            this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("ＭＳ ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "CompanyDetailFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "会社詳細";
+            this.Load += new System.EventHandler(this.CompanyDetailFrmDetailFrm_Load);
+            this.panel1.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lbCompanyName;
+        private System.Windows.Forms.TextBox txtLoginID;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.Label lbPostNo;
+        private System.Windows.Forms.Label lbAddress;
+        private System.Windows.Forms.TextBox txtTel;
+        private System.Windows.Forms.Label lbTel;
+        private System.Windows.Forms.Label lbTax;
+        private System.Windows.Forms.Label lbSealFile;
+        private System.Windows.Forms.TextBox txtSealFilePath;
+        private System.Windows.Forms.ComboBox cbTax;
+        private System.Windows.Forms.Button btnOpenFile;
+        private System.Windows.Forms.OpenFileDialog ofdSealFile;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbFraction;
+        private System.Windows.Forms.TextBox txtBankName;
+        private System.Windows.Forms.Label lbBankName;
+        private System.Windows.Forms.TextBox txtBranchName;
+        private System.Windows.Forms.Label lbBranchName;
+        private System.Windows.Forms.TextBox txtAccountNo;
+        private System.Windows.Forms.Label lbAccountNo;
+        private System.Windows.Forms.TextBox txtAccountName;
+        private System.Windows.Forms.Label lbAccountName;
+    }
+}

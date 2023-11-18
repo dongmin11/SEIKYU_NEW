@@ -1,0 +1,2 @@
+"ID","CustomeID","OrderNo","BillingNo","ProjectName","ProjectContent","ProjectAdd","Deliverables","PaymentType","DeleteFlag","CreatUserID","CreatDateTime","UpdateUserID","UpdateDateTime","LockVer"
+1,1,"A00000N676","ABC","医療システム","病院向けシステム","在宅","現場に従って",1,0,,,,,0

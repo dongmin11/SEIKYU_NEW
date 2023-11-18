@@ -1,0 +1,6 @@
+ID,LoginID,Password,UserName,UserNameKana,UserShortName,Department,AuthorityFlag,SealFile,SealName,Note,DeleteFlag,CreatUserID,CreatDateTime,UpdateUserID,UpdateDateTime,LockVer
+1,admin,PR1Lv+7RImmP7rJi6phoBqn2kejMMAOpMZkBnWukxXO27ibZqV30sFPsiHm2sTui,管理者,カンリシャ,管理者,3,9,,,PW:seikyu000,0,,,,,0
+2,seikyu001,PR1Lv+7RImmP7rJi6phoBqn2kejMMAOpMZkBnWukxXO27ibZqV30sFPsiHm2sTui,作成者A,サクセイシャA,作成者A,1,0,,,,0,,,,,0
+3,seikyu002,PR1Lv+7RImmP7rJi6phoBqn2kejMMAOpMZkBnWukxXO27ibZqV30sFPsiHm2sTui,作成者B,サクセイシャ,作成者,1,0,,,,0,,,,,0
+4,seikyu003,PR1Lv+7RImmP7rJi6phoBqn2kejMMAOpMZkBnWukxXO27ibZqV30sFPsiHm2sTui,承認者Bああああ,サクセイシャ,作成者,2,0,,,,0,,,,,0
+5,seikyu004,PR1Lv+7RImmP7rJi6phoBqn2kejMMAOpMZkBnWukxXO27ibZqV30sFPsiHm2sTui,削除,サクセイシャ,作成者,2,0,,,,1,,,,,0

@@ -1,0 +1,403 @@
+﻿namespace BillingSystem
+{
+    partial class SeikyuFrm
+    {
+        /// <summary>
+        /// 必要なデザイナー変数です。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// 使用中のリソースをすべてクリーンアップします。
+        /// </summary>
+        /// <param name="disposing">マネージ リソースが破棄される場合 true、破棄されない場合は false です。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows フォーム デザイナーで生成されたコード
+
+        /// <summary>
+        /// デザイナー サポートに必要なメソッドです。このメソッドの内容を
+        /// コード エディターで変更しないでください。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnSearchButton = new System.Windows.Forms.Button();
+            this.CkbxApproveByManager = new System.Windows.Forms.CheckBox();
+            this.CkbxApproveBySupervisor = new System.Windows.Forms.CheckBox();
+            this.CkbxShowDeleted = new System.Windows.Forms.CheckBox();
+            this.DtbBillingEndDate = new System.Windows.Forms.DateTimePicker();
+            this.DtbBillingStartDate = new System.Windows.Forms.DateTimePicker();
+            this.CbbxBillingRecipient = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.BtnPreviousButton = new System.Windows.Forms.Button();
+            this.BtnNextButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.LblTotalCount = new System.Windows.Forms.Label();
+            this.LblDisplayCount = new System.Windows.Forms.Label();
+            this.DgbBillingInfoGridView = new System.Windows.Forms.DataGridView();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgbBillingInfoGridView)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // LblLoginUserName
+            // 
+            this.LblLoginUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblLoginUserName.Size = new System.Drawing.Size(154, 25);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.BtnSearchButton);
+            this.panel3.Controls.Add(this.CkbxApproveByManager);
+            this.panel3.Controls.Add(this.CkbxApproveBySupervisor);
+            this.panel3.Controls.Add(this.CkbxShowDeleted);
+            this.panel3.Controls.Add(this.DtbBillingEndDate);
+            this.panel3.Controls.Add(this.DtbBillingStartDate);
+            this.panel3.Controls.Add(this.CbbxBillingRecipient);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Location = new System.Drawing.Point(5, 55);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1489, 135);
+            this.panel3.TabIndex = 9;
+            // 
+            // BtnSearchButton
+            // 
+            this.BtnSearchButton.Location = new System.Drawing.Point(499, 86);
+            this.BtnSearchButton.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnSearchButton.Name = "BtnSearchButton";
+            this.BtnSearchButton.Size = new System.Drawing.Size(120, 38);
+            this.BtnSearchButton.TabIndex = 4;
+            this.BtnSearchButton.Text = "検索";
+            this.BtnSearchButton.UseVisualStyleBackColor = true;
+            this.BtnSearchButton.Click += new System.EventHandler(this.searchButton);
+            // 
+            // CkbxApproveByManager
+            // 
+            this.CkbxApproveByManager.AutoSize = true;
+            this.CkbxApproveByManager.Location = new System.Drawing.Point(782, 16);
+            this.CkbxApproveByManager.Margin = new System.Windows.Forms.Padding(4);
+            this.CkbxApproveByManager.Name = "CkbxApproveByManager";
+            this.CkbxApproveByManager.Size = new System.Drawing.Size(134, 29);
+            this.CkbxApproveByManager.TabIndex = 3;
+            this.CkbxApproveByManager.Text = "管理承認済";
+            this.CkbxApproveByManager.UseVisualStyleBackColor = true;
+            // 
+            // CkbxApproveBySupervisor
+            // 
+            this.CkbxApproveBySupervisor.AutoSize = true;
+            this.CkbxApproveBySupervisor.Location = new System.Drawing.Point(626, 16);
+            this.CkbxApproveBySupervisor.Margin = new System.Windows.Forms.Padding(4);
+            this.CkbxApproveBySupervisor.Name = "CkbxApproveBySupervisor";
+            this.CkbxApproveBySupervisor.Size = new System.Drawing.Size(154, 29);
+            this.CkbxApproveBySupervisor.TabIndex = 3;
+            this.CkbxApproveBySupervisor.Text = "担当者承認済";
+            this.CkbxApproveBySupervisor.UseVisualStyleBackColor = true;
+            // 
+            // CkbxShowDeleted
+            // 
+            this.CkbxShowDeleted.AutoSize = true;
+            this.CkbxShowDeleted.Location = new System.Drawing.Point(14, 94);
+            this.CkbxShowDeleted.Margin = new System.Windows.Forms.Padding(4);
+            this.CkbxShowDeleted.Name = "CkbxShowDeleted";
+            this.CkbxShowDeleted.Size = new System.Drawing.Size(129, 29);
+            this.CkbxShowDeleted.TabIndex = 3;
+            this.CkbxShowDeleted.Text = "削除も表示";
+            this.CkbxShowDeleted.UseVisualStyleBackColor = true;
+            // 
+            // DtbBillingEndDate
+            // 
+            this.DtbBillingEndDate.Location = new System.Drawing.Point(335, 9);
+            this.DtbBillingEndDate.Margin = new System.Windows.Forms.Padding(4);
+            this.DtbBillingEndDate.Name = "DtbBillingEndDate";
+            this.DtbBillingEndDate.Size = new System.Drawing.Size(184, 33);
+            this.DtbBillingEndDate.TabIndex = 2;
+            // 
+            // DtbBillingStartDate
+            // 
+            this.DtbBillingStartDate.Location = new System.Drawing.Point(106, 9);
+            this.DtbBillingStartDate.Margin = new System.Windows.Forms.Padding(4);
+            this.DtbBillingStartDate.Name = "DtbBillingStartDate";
+            this.DtbBillingStartDate.Size = new System.Drawing.Size(184, 33);
+            this.DtbBillingStartDate.TabIndex = 2;
+            this.DtbBillingStartDate.ValueChanged += new System.EventHandler(this.changeStartDate);
+            // 
+            // CbbxBillingRecipient
+            // 
+            this.CbbxBillingRecipient.DisplayMember = "CustomerName";
+            this.CbbxBillingRecipient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbbxBillingRecipient.FormattingEnabled = true;
+            this.CbbxBillingRecipient.Location = new System.Drawing.Point(106, 51);
+            this.CbbxBillingRecipient.Margin = new System.Windows.Forms.Padding(4);
+            this.CbbxBillingRecipient.Name = "CbbxBillingRecipient";
+            this.CbbxBillingRecipient.Size = new System.Drawing.Size(329, 33);
+            this.CbbxBillingRecipient.TabIndex = 4;
+            this.CbbxBillingRecipient.ValueMember = "ID";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(570, 16);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 25);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "状態";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 55);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 25);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "請求先";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(298, 16);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "～";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "請求期間";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.BtnPreviousButton);
+            this.panel4.Controls.Add(this.BtnNextButton);
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.LblTotalCount);
+            this.panel4.Controls.Add(this.LblDisplayCount);
+            this.panel4.Controls.Add(this.DgbBillingInfoGridView);
+            this.panel4.Location = new System.Drawing.Point(5, 211);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1489, 529);
+            this.panel4.TabIndex = 10;
+            // 
+            // BtnPreviousButton
+            // 
+            this.BtnPreviousButton.Location = new System.Drawing.Point(1355, 4);
+            this.BtnPreviousButton.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnPreviousButton.Name = "BtnPreviousButton";
+            this.BtnPreviousButton.Size = new System.Drawing.Size(60, 38);
+            this.BtnPreviousButton.TabIndex = 2;
+            this.BtnPreviousButton.Text = "前頁";
+            this.BtnPreviousButton.UseVisualStyleBackColor = true;
+            // 
+            // BtnNextButton
+            // 
+            this.BtnNextButton.Location = new System.Drawing.Point(1422, 4);
+            this.BtnNextButton.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnNextButton.Name = "BtnNextButton";
+            this.BtnNextButton.Size = new System.Drawing.Size(60, 38);
+            this.BtnNextButton.TabIndex = 2;
+            this.BtnNextButton.Text = "次頁";
+            this.BtnNextButton.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1264, 11);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 25);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "/";
+            // 
+            // LblTotalCount
+            // 
+            this.LblTotalCount.AutoSize = true;
+            this.LblTotalCount.Location = new System.Drawing.Point(1278, 11);
+            this.LblTotalCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblTotalCount.Name = "LblTotalCount";
+            this.LblTotalCount.Size = new System.Drawing.Size(68, 25);
+            this.LblTotalCount.TabIndex = 1;
+            this.LblTotalCount.Text = "520件";
+            // 
+            // LblDisplayCount
+            // 
+            this.LblDisplayCount.AutoSize = true;
+            this.LblDisplayCount.Location = new System.Drawing.Point(1222, 11);
+            this.LblDisplayCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblDisplayCount.Name = "LblDisplayCount";
+            this.LblDisplayCount.Size = new System.Drawing.Size(48, 25);
+            this.LblDisplayCount.TabIndex = 1;
+            this.LblDisplayCount.Text = "100";
+            // 
+            // DgbBillingInfoGridView
+            // 
+            this.DgbBillingInfoGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DgbBillingInfoGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.DgbBillingInfoGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgbBillingInfoGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column2,
+            this.Column8,
+            this.Column1,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
+            this.DgbBillingInfoGridView.Location = new System.Drawing.Point(0, 49);
+            this.DgbBillingInfoGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.DgbBillingInfoGridView.MultiSelect = false;
+            this.DgbBillingInfoGridView.Name = "DgbBillingInfoGridView";
+            this.DgbBillingInfoGridView.ReadOnly = true;
+            this.DgbBillingInfoGridView.RowHeadersWidth = 51;
+            this.DgbBillingInfoGridView.RowTemplate.Height = 21;
+            this.DgbBillingInfoGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgbBillingInfoGridView.Size = new System.Drawing.Size(1484, 476);
+            this.DgbBillingInfoGridView.TabIndex = 0;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "BillingDate";
+            this.Column2.HeaderText = "請求日";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "PaymentType";
+            this.Column8.HeaderText = "状態";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 125;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "CustomerName";
+            this.Column1.HeaderText = "請求先";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 300;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "BillingNo";
+            this.Column3.HeaderText = "請求No";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "BillingAmount";
+            this.Column4.HeaderText = "請求金額(税抜き)";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "BillingTax";
+            this.Column5.HeaderText = "消費税";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "TransportationAmount";
+            this.Column6.HeaderText = "交通費";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "BillingTotal";
+            this.Column7.HeaderText = "合計金額";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 120;
+            // 
+            // SeikyuFrm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.ClientSize = new System.Drawing.Size(1499, 799);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Name = "SeikyuFrm";
+            this.Controls.SetChildIndex(this.panel3, 0);
+            this.Controls.SetChildIndex(this.panel4, 0);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgbBillingInfoGridView)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button BtnSearchButton;
+        private System.Windows.Forms.CheckBox CkbxApproveByManager;
+        private System.Windows.Forms.CheckBox CkbxApproveBySupervisor;
+        private System.Windows.Forms.CheckBox CkbxShowDeleted;
+        private System.Windows.Forms.DateTimePicker DtbBillingEndDate;
+        private System.Windows.Forms.DateTimePicker DtbBillingStartDate;
+        private System.Windows.Forms.ComboBox CbbxBillingRecipient;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView DgbBillingInfoGridView;
+        private System.Windows.Forms.Button BtnPreviousButton;
+        private System.Windows.Forms.Button BtnNextButton;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label LblTotalCount;
+        private System.Windows.Forms.Label LblDisplayCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+    }
+}

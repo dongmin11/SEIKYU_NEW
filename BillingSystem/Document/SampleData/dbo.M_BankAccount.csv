@@ -1,0 +1,6 @@
+ID,BankCode,BankName,BranchCode,BranchName,AccountNo,AccountName,DeleteFlag,CreatUserID,CreatDateTime,UpdateUserID,UpdateDateTime,LockVer
+1,1,みずほ銀行,3,池袋西口支店,698536,テスト　カイシャ,0,,,,,0
+2,2,三井住友銀行,1,池袋支店,698746,ネットワークB,0,,,,,0
+3,2,三井住友銀行,2,池袋支店,123456,ネットワークC,1,,,,,0
+4,3,三菱UFJAAA,2,本郷三丁目支店,456789,ネットワークD,0,,,,,0
+5,2,三井住友銀行,3,池袋支店,234568,ネットワークA,0,,,,,0

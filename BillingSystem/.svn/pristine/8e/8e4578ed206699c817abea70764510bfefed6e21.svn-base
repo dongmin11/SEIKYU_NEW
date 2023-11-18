@@ -1,0 +1,5 @@
+ID,Type,PaymentTypeName,AddDays,DeleteFlag,DisplayNo,CreatUserID,CreatDateTime,UpdateUserID,UpdateDateTime,LockVer
+1,1,月末締め、5日,5,0,1,,,,,0
+2,2,月末締め、15日,15,0,1,,,,,0
+3,3,二十日締め、20日,20,0,1,,,,,0
+4,4,月末締め、１日,1,1,1,,,,,0

@@ -1,0 +1,254 @@
+﻿using Common;
+using Common.DAL;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text;
+using BillingSystem.Models;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace BillingSystem.DAL
+{
+    public class SeikyuEditDAL : CommonDAL
+    {
+        #region 口座名取得
+        /// <summary>
+        /// 顧客名一覧を取得
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditBankAccountModel> GetBankAccountName(SeikyuEditBankAccountModel inputData)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" SELECT");
+            sb.Append("     BankName");
+            sb.Append("     ,ID");
+            sb.Append(" FROM");
+            sb.Append("     [dbo].[M_BankAccount]");
+
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(inputData);
+            // SQL文実行
+            DataTable dt = RunSqlDataTable(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            var result = ConvertDataTableToListClass<SeikyuEditBankAccountModel>(dt);
+
+            return result;
+        }
+        #endregion
+
+        #region 請求先名一覧取得
+        /// <summary>
+        /// 顧客名一覧を取得
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditCustomerModel> GetCustomerInfo(SeikyuEditCustomerModel inputData)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" SELECT");
+            sb.Append("     CustomerName");
+            sb.Append("     ,ID");
+            sb.Append(" FROM");
+            sb.Append("     [dbo].[M_Customer]");
+
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(inputData);
+            // SQL文実行
+            DataTable dt = RunSqlDataTable(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            var result = ConvertDataTableToListClass<SeikyuEditCustomerModel>(dt);
+
+            return result;
+        }
+        #endregion
+
+        #region 部署名取得
+        /// <summary>
+        /// 顧客名一覧を取得
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditDepartmentModel> GetDepartmentInfo(SeikyuEditDepartmentModel inputData)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" SELECT");
+            sb.Append("     DepartmentName");
+            sb.Append("     ,CustomeID");
+            sb.Append(" FROM");
+            sb.Append("     [dbo].[M_Department]");
+
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(inputData);
+            // SQL文実行
+            DataTable dt = RunSqlDataTable(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            var result = ConvertDataTableToListClass<SeikyuEditDepartmentModel>(dt);
+
+            return result;
+        }
+        #endregion
+
+
+        #region ユーザー名一覧取得
+        /// <summary>
+        /// 顧客名一覧を取得
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditManagerModel> GetUserInfo(SeikyuEditManagerModel inputData)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" SELECT");
+            sb.Append("     UserName");
+            sb.Append("     ,ID");
+            sb.Append(" FROM");
+            sb.Append("     M_User");
+
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(inputData);
+            // SQL文実行
+            DataTable dt = RunSqlDataTable(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            var result = ConvertDataTableToListClass<SeikyuEditManagerModel>(dt);
+
+            return result;
+        }
+        #endregion
+
+        #region 支払い種別一覧取得
+        /// <summary>
+        /// 顧客名一覧を取得
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditPaymentTypeModel> GetPaymentInfo(SeikyuEditPaymentTypeModel inputData)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" SELECT");
+            sb.Append("     PaymentTypeName");
+            sb.Append("     ,Type");
+            sb.Append(" FROM");
+            sb.Append("     M_PaymentType");
+
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(inputData);
+            // SQL文実行
+            DataTable dt = RunSqlDataTable(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            var result = ConvertDataTableToListClass<SeikyuEditPaymentTypeModel>(dt);
+
+            return result;
+        }
+        #endregion
+
+        #region プロジェクト一覧取得
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditProjectModel> GetProjectInfo(SeikyuEditProjectModel inputData)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" SELECT");
+            sb.Append("     ProjectName");
+            sb.Append("     ,OrderNo");
+            sb.Append(" FROM");
+            sb.Append("     M_Project");
+
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(inputData);
+            // SQL文実行
+            DataTable dt = RunSqlDataTable(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            var result = ConvertDataTableToListClass<SeikyuEditProjectModel>(dt);
+
+            return result;
+        }
+        #endregion
+
+        #region 請求詳細パラメータ取得
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditParamModel> GetBillingParam(SeikyuEditParamModel inputData)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" SELECT");
+            sb.Append("     ManagerID");
+            sb.Append("     ,BankAccountID");
+            sb.Append(" FROM");
+            sb.Append("     T_Billing");
+            sb.Append(" WHERE");
+            sb.Append(" ID = @ID");
+
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(inputData);
+            // SQL文実行
+            DataTable dt = RunSqlDataTable(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            var result = ConvertDataTableToListClass<SeikyuEditParamModel>(dt);
+
+            return result;
+        }
+        #endregion
+
+        #region 請求詳細取得
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditBillingModel> GetBillingDetail(SeikyuEditBillingModel inputData)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" SELECT");
+            sb.Append("     BillingDate");
+            sb.Append("     ,BillingNo");
+            sb.Append("     ,BranchNo");
+            sb.Append("     ,OrderNo");
+            sb.Append("     ,ManagerID");
+            sb.Append("     ,BankAccountID");
+            sb.Append("     ,CustomeID");
+            sb.Append("     ,ProjectContent");
+            sb.Append("     ,ProjectAdd");
+            sb.Append("     ,Deliverables");
+            sb.Append("     ,PaymentType");
+            sb.Append(" FROM");
+            sb.Append("     T_Billing");
+            sb.Append(" WHERE");
+            sb.Append("     T_Billing.ID = @ID");
+
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(inputData);
+            // SQL文実行
+            DataTable dt = RunSqlDataTable(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            var result = ConvertDataTableToListClass<SeikyuEditBillingModel>(dt);
+
+            return result;
+        }
+        #endregion
+
+    }
+
+
+}

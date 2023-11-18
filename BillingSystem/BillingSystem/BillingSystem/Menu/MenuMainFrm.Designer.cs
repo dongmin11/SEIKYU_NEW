@@ -1,0 +1,115 @@
+﻿
+namespace BillingSystem.Menu
+{
+    partial class MenuMainFrm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.plNavi = new System.Windows.Forms.Panel();
+            this.btnMaster = new System.Windows.Forms.Button();
+            this.btSeikyu = new System.Windows.Forms.Button();
+            this.plSubMenu = new System.Windows.Forms.Panel();
+            this.plNavi.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // LblProcessName
+            // 
+            this.LblProcessName.Size = new System.Drawing.Size(895, 40);
+            // 
+            // LblLoginUserName
+            // 
+            this.LblLoginUserName.Location = new System.Drawing.Point(1058, 15);
+            // 
+            // plNavi
+            // 
+            this.plNavi.BackColor = System.Drawing.Color.Aqua;
+            this.plNavi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.plNavi.Controls.Add(this.btnMaster);
+            this.plNavi.Controls.Add(this.btSeikyu);
+            this.plNavi.Location = new System.Drawing.Point(15, 65);
+            this.plNavi.Name = "plNavi";
+            this.plNavi.Size = new System.Drawing.Size(248, 558);
+            this.plNavi.TabIndex = 9;
+            // 
+            // btnMaster
+            // 
+            this.btnMaster.Location = new System.Drawing.Point(42, 455);
+            this.btnMaster.Name = "btnMaster";
+            this.btnMaster.Size = new System.Drawing.Size(175, 45);
+            this.btnMaster.TabIndex = 1;
+            this.btnMaster.Text = "マスタ設定";
+            this.btnMaster.UseVisualStyleBackColor = true;
+            this.btnMaster.Click += new System.EventHandler(this.btnMaster_Click);
+            // 
+            // btSeikyu
+            // 
+            this.btSeikyu.Location = new System.Drawing.Point(42, 26);
+            this.btSeikyu.Name = "btSeikyu";
+            this.btSeikyu.Size = new System.Drawing.Size(175, 45);
+            this.btSeikyu.TabIndex = 0;
+            this.btSeikyu.Text = "請求書";
+            this.btSeikyu.UseVisualStyleBackColor = true;
+            this.btSeikyu.Click += new System.EventHandler(this.btSeikyu_Click);
+            // 
+            // plSubMenu
+            // 
+            this.plSubMenu.AutoSize = true;
+            this.plSubMenu.BackColor = System.Drawing.Color.Aqua;
+            this.plSubMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.plSubMenu.Location = new System.Drawing.Point(286, 67);
+            this.plSubMenu.Name = "plSubMenu";
+            this.plSubMenu.Size = new System.Drawing.Size(994, 556);
+            this.plSubMenu.TabIndex = 10;
+            // 
+            // MenuMainFrm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1292, 685);
+            this.Controls.Add(this.plSubMenu);
+            this.Controls.Add(this.plNavi);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "MenuMainFrm";
+            this.Text = "メニュー";
+            this.Load += new System.EventHandler(this.btnMenuMain_Load);
+            this.Controls.SetChildIndex(this.plNavi, 0);
+            this.Controls.SetChildIndex(this.plSubMenu, 0);
+            this.plNavi.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel plNavi;
+        private System.Windows.Forms.Button btnMaster;
+        private System.Windows.Forms.Button btSeikyu;
+        private System.Windows.Forms.Panel plSubMenu;
+    }
+}

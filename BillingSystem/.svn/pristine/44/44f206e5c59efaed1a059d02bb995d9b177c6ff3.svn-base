@@ -1,0 +1,78 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BillingSystem.Models
+{
+    public class CompanyInfo
+    {
+        /// <summary>
+        /// ID
+        /// </summary>
+        public static int? ID { get; set; }
+
+        /// <summary>
+        /// 会社名
+        /// </summary>
+        public static string CompanyName { get; set; }
+
+        /// <summary>
+        /// 郵便番号
+        /// </summary>
+        public static string PostNo { get; set; }
+
+        /// <summary>
+        /// 住所
+        /// </summary>
+        public static string Address { get; set; }
+
+        /// <summary>
+        /// 電話番号
+        /// </summary>
+        public static string Tel { get; set; }
+
+        /// <summary>
+        /// 消費税率
+        /// </summary>
+        public static decimal? Tax { get; set; }
+
+        /// <summary>
+        /// 端数
+        /// </summary>
+        public static int? Fraction { get; set; }
+
+        /// <summary>
+        /// インボイスNo
+        /// </summary>
+        public static string InvoiceNo { get; set; }
+
+        /// <summary>
+        /// 会社印ファイルID
+        /// </summary>
+        public static string CompanySealID { get; set; }
+
+        /// <summary>
+        /// 会社印ファイル名
+        /// </summary>
+        public static string CompanySealName { get; set; }
+
+        /// <summary>
+        /// 初期化
+        /// </summary>
+        public static void CompanyInfoClear()
+        {
+            ID = 0;
+            CompanyName = string.Empty;
+            PostNo = string.Empty;
+            Address = string.Empty;
+            Tel = string.Empty;
+            Tax = 0;
+            Fraction = 3;
+            InvoiceNo = string.Empty;
+            CompanySealID = string.Empty;
+            CompanySealName = string.Empty;
+        }
+    }
+}

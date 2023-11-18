@@ -1,0 +1,82 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BillingSystem.Models
+{
+    public class SeikyuEditBillingModel
+    {
+        /// <summary>
+        /// 請求日
+        /// </summary>
+        public DateTime BillingDate { get; set; }
+        /// <summary>
+        /// 請求番号
+        /// </summary>
+        public string BillingNo { get; set; }
+        /// <summary>
+        /// 請求枝番
+        /// </summary>
+        /// 
+        public string BranchNo { get; set; }
+        /// <summary>
+        /// 担当者
+        /// </summary>
+        /// 
+        public string ManagerID { get; set; }
+        /// <summary>
+        /// 担当者
+        /// </summary>
+        /// 
+        public string UserName { get; set; }
+        /// <summary>
+        /// 請求先ID
+        /// </summary>
+        /// 
+        public string CustomeID { get; set; }
+        /// <summary>
+        /// 請求先名
+        /// </summary>
+        /// 
+        public string CustomerName { get; set; }
+        /// <summary>
+        /// 部署
+        /// </summary>
+        public string DepartmentName { get; set; }
+        /// <summary>
+        /// 作業名
+        /// </summary>
+        public string OrderNo { get; set; }
+        /// <summary>
+        /// 作業名
+        /// </summary>
+        public string ProjectName { get; set; }
+        /// <summary>
+        /// 作業内容
+        /// </summary>
+        public string ProjectContent { get; set; }
+        /// <summary>
+        /// 作業場所
+        /// </summary>
+        public string ProjectAdd { get; set; }
+        /// <summary>
+        /// 成果物
+        /// </summary>
+        public string Deliverables { get; set; }
+        /// <summary>
+        /// 支払い条件
+        /// </summary>
+        public string PaymentType { get; set; }
+        /// <summary>
+        ///振込先口座
+        /// </summary>
+        public string BankAccountID { get; set; }
+        /// <summary>
+        ///ID
+        /// </summary>
+        public string ID { get; set; }
+
+    }
+}

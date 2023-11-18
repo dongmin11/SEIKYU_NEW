@@ -1,0 +1,191 @@
+﻿using BillingSystem.DAL;
+using Common.BLL;
+using System.Collections;
+using System.Collections.Generic;
+using BillingSystem.Models;
+
+namespace BillingSystem.BLL
+{
+    public class SeikyuEditBLL : CommonBLL
+    {
+        SeikyuEditDAL dal = new SeikyuEditDAL();
+
+        #region 口座名一覧を取得
+
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditBankAccountModel> GetBankAccountName(SeikyuEditBankAccountModel inputData)
+        {
+            var selectList = new List<SeikyuEditBankAccountModel>();
+
+            CommonDelegateSetSqlContext context = new CommonDelegateSetSqlContext(dal.SetSqlContext);
+            List<SeikyuEditBankAccountModel> list = CallHeavyBusinessLogic(() => dal.GetBankAccountName(inputData), context);
+
+            if (list != null)
+            {
+                return list;
+            }
+
+            return null;
+        }
+        #endregion
+
+        #region 顧客名一覧を取得
+
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditCustomerModel> GetCustomerInfo(SeikyuEditCustomerModel inputData)
+        {
+            var selectList = new List<SeikyuEditCustomerModel>();
+
+            CommonDelegateSetSqlContext context = new CommonDelegateSetSqlContext(dal.SetSqlContext);
+            List<SeikyuEditCustomerModel> list = CallHeavyBusinessLogic(() => dal.GetCustomerInfo(inputData), context);
+
+            if (list != null)
+            {
+                return list;
+            }
+
+            return null;
+        }
+        #endregion
+
+        #region 部署一覧を取得
+
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditDepartmentModel> GetDepartmentInfo(SeikyuEditDepartmentModel inputData)
+        {
+            var selectList = new List<SeikyuEditDepartmentModel>();
+
+            CommonDelegateSetSqlContext context = new CommonDelegateSetSqlContext(dal.SetSqlContext);
+            List<SeikyuEditDepartmentModel> list = CallHeavyBusinessLogic(() => dal.GetDepartmentInfo(inputData), context);
+
+            if (list != null)
+            {
+                return list;
+            }
+
+            return null;
+        }
+        #endregion
+
+        #region ユーザー名名一覧を取得
+
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditManagerModel> GetUserInfo(SeikyuEditManagerModel inputData)
+        {
+            var selectList = new List<SeikyuEditDepartmentModel>();
+
+            CommonDelegateSetSqlContext context = new CommonDelegateSetSqlContext(dal.SetSqlContext);
+            List<SeikyuEditManagerModel> list = CallHeavyBusinessLogic(() => dal.GetUserInfo(inputData), context);
+
+            if (list != null)
+            {
+                return list;
+            }
+
+            return null;
+        }
+        #endregion
+
+        #region 支払い種別名を取得
+
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditPaymentTypeModel> GetPaymentInfo(SeikyuEditPaymentTypeModel inputData)
+        {
+            var selectList = new List<SeikyuEditDepartmentModel>();
+
+            CommonDelegateSetSqlContext context = new CommonDelegateSetSqlContext(dal.SetSqlContext);
+            List<SeikyuEditPaymentTypeModel> list = CallHeavyBusinessLogic(() => dal.GetPaymentInfo(inputData), context);
+
+            if (list != null)
+            {
+                return list;
+            }
+
+            return null;
+        }
+        #endregion
+
+        #region 作業名を取得
+
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditProjectModel> GetProjectInfo(SeikyuEditProjectModel inputData)
+        {
+            var selectList = new List<SeikyuEditDepartmentModel>();
+
+            CommonDelegateSetSqlContext context = new CommonDelegateSetSqlContext(dal.SetSqlContext);
+            List<SeikyuEditProjectModel> list = CallHeavyBusinessLogic(() => dal.GetProjectInfo(inputData), context);
+
+            if (list != null)
+            {
+                return list;
+            }
+
+            return null;
+        }
+        #endregion
+
+        #region 請求詳細のパラメータ
+
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditParamModel> GetBillingParam(SeikyuEditParamModel inputData)
+        {
+            var selectList = new List<SeikyuEditParamModel>();
+
+            CommonDelegateSetSqlContext context = new CommonDelegateSetSqlContext(dal.SetSqlContext);
+            List<SeikyuEditParamModel> list = CallHeavyBusinessLogic(() => dal.GetBillingParam(inputData), context);
+
+            if (list != null)
+            {
+                return list;
+            }
+
+            return null;
+        }
+        #endregion
+
+        #region 請求詳細
+
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditBillingModel> GetBillingDetail(SeikyuEditBillingModel inputData)
+        {
+            var selectList = new List<SeikyuEditBillingModel>();
+
+            CommonDelegateSetSqlContext context = new CommonDelegateSetSqlContext(dal.SetSqlContext);
+            List<SeikyuEditBillingModel> list = CallHeavyBusinessLogic(() => dal.GetBillingDetail(inputData), context);
+
+            if (list != null)
+            {
+                return list;
+            }
+
+            return null;
+        }
+        #endregion
+
+
+    }
+}

@@ -1,0 +1,245 @@
+﻿using BillingSystem.BaseFrom;
+using BillingSystem.BLL;
+using BillingSystem.Models;
+using Common;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
+
+namespace BillingSystem
+{
+    public partial class SeikyuFrm : BaseFrm
+    {
+        SeikyuBLL BLL = new SeikyuBLL();
+        int totalRecord = 0;
+        int appearRecord = 0;
+
+        private ListBox recordListBox;
+        private int recordsPerPage = 2;
+        private int currentPage = 1;
+
+        public SeikyuFrm()
+        {
+            InitializeComponent();
+
+            //BaseFromInitialize("請求書", ButtonData.GetSeikyuFrm());
+
+            DgbBillingInfoGridView.AutoGenerateColumns = false;
+            SeikyuBLL bll = new SeikyuBLL();
+
+            // 請求先名称一覧取得
+            SeikyuCustomerModel customerInputData = new SeikyuCustomerModel();
+            List<SeikyuCustomerModel> CustomerData = BLL.GetCustomerInfo(customerInputData);
+
+            SeikyuCustomerModel addData = new SeikyuCustomerModel { CustomerName = "全て" };
+            CustomerData.Insert(0, addData);
+
+            CbbxBillingRecipient.DataSource = CustomerData;
+
+            //請求一覧取得
+            SeikyuBillingModel inputData = new SeikyuBillingModel();
+            List<SeikyuBillingModel> BillingData = BLL.GetBillingInfo(inputData);
+            LblDisplayCount.Text = BillingData.Count.ToString();
+
+
+            //データ成型
+            dataFormat();
+
+            //データバインド
+            recordListBox = new ListBox();
+            LoadRecords();
+
+            base.LblProcessName.Text = "請求書検索";
+
+            //開始日時の初期値を今月の1日
+            DtbBillingStartDate.Format = DateTimePickerFormat.Custom;
+            DtbBillingStartDate.CustomFormat = "yyyy年MM月dd日";
+            DtbBillingStartDate.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            DtbBillingEndDate.MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+
+            DtbBillingStartDate.Text = DtbBillingStartDate.Value.ToString("yyyy年MM月dd日");
+
+            //終了日時の初期値を今月の最終日に
+            DtbBillingEndDate.Format = DateTimePickerFormat.Custom;
+            DtbBillingEndDate.CustomFormat = "yyyy年MM月dd日";
+            DateTime today = DateTime.Today;
+            DtbBillingEndDate.Value = new DateTime(today.Year, today.Month, DateTime.DaysInMonth(today.Year, today.Month));
+            DtbBillingEndDate.Text = DtbBillingEndDate.Value.ToString("yyyy年MM月dd日");
+
+            //総表示数
+            SeikyuAllCountModel param = new SeikyuAllCountModel();
+            param.DeleteFlag = CkbxShowDeleted.Checked.ToString();
+            List<SeikyuAllCountModel> AllCount = BLL.GetAllInfo(param);
+            LblTotalCount.Text = AllCount.Count.ToString();
+        }
+
+
+        private void LoadRecords()
+        {
+            // データを生成
+            SeikyuBillingModel inputData = new SeikyuBillingModel();
+            List<SeikyuBillingModel> BillingData = BLL.GetBillingInfo(inputData);
+
+            // 現在のページのレコードを表示
+            int startIndex = (currentPage - 1) * recordsPerPage;
+            int endIndex = Math.Min(startIndex + recordsPerPage, BillingData.Count);
+
+            //recordListBox.Items.Clear();
+            for (int i = startIndex; i < endIndex; i++)
+            {
+                recordListBox.Items.Add(BillingData[i]);
+            }
+            var aa = recordListBox;
+
+            //ConvertListToDataTable(recordListBox);
+            DataTable aaa = ConvertListBoxItemsToDataTable(BillingData);
+
+            DgbBillingInfoGridView.DataSource = BillingData;
+        }
+
+        // ListBoxのアイテムをデータテーブルに変換するメソッド
+        private DataTable ConvertListBoxItemsToDataTable(List<SeikyuBillingModel> billingData)
+        {
+            DataTable table = new DataTable();
+
+            // カラムの追加（1つのカラムのみと仮定）
+            table.Columns.Add("BillingAmount", typeof(string));
+            table.Columns.Add("BillingDate", typeof(string));
+            table.Columns.Add("BillingNo", typeof(string));
+            table.Columns.Add("BillingTax", typeof(string));
+            table.Columns.Add("BillingTotal", typeof(string));
+            table.Columns.Add("CustomerName", typeof(string));
+            table.Columns.Add("PaymentType", typeof(string));
+            table.Columns.Add("TransportationAmount", typeof(string));
+
+            // データの追加
+            foreach (var item in billingData)
+            {
+                table.Rows.Add(
+                item.BillingAmount.ToString(),
+                item.BillingDate.ToString(), // 日付を適切なフォーマットに変換
+                item.BillingNo.ToString(),
+                item.BillingTax.ToString(),
+                item.BillingTotal.ToString(),
+                item.CustomerName.ToString(),
+                item.PaymentType.ToString(),
+                item.TransportationAmount.ToString()
+                );
+            }
+
+            return table;
+        }
+
+        //// リストをデータテーブルに変換するメソッド
+        //private DataTable ConvertListToDataTable(ListBox recordListBox)
+        //{
+        //    DataTable table = new DataTable();
+
+        //    // カラムの追加
+        //    table.Columns.Add("BillingDate", typeof(DateTime));
+        //    table.Columns.Add("BillingNo", typeof(string));
+        //    // 他のプロパティに対応するカラムも同様に追加
+
+        //    // データの追加
+        //    foreach (var item in recordListBox)
+        //    {
+        //        //table.Rows.Add(item.BillingDate, item.BillingNo /* 他のプロパティも同様に追加 */);
+        //    }
+
+        //    return table;
+        //}
+
+
+        /// <summary>
+        /// 検索機能ボタン
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void searchButton(object sender, EventArgs e)
+        {
+            //請求開始日時取得
+            string billingStartDateText = DtbBillingStartDate.Text;
+            DateTime billingStartDate = DateTime.Parse(billingStartDateText);
+            billingStartDateText = billingStartDate.ToString("yyyy-MM-dd");
+
+            //請求終了日時取得
+            string billingEndDateText = DtbBillingEndDate.Text;
+            DateTime billingEndDate = DateTime.Parse(billingEndDateText);
+            billingEndDateText = billingEndDate.ToString("yyyy-MM-dd");
+
+            //選択された請求先取得
+            string selectedBillingRecipient = CbbxBillingRecipient.Text;
+
+            //請求一覧取得
+            SeikyuSearchBillingModel inputData = new SeikyuSearchBillingModel();
+            inputData.DeleteFlag = CkbxShowDeleted.Checked.ToString();
+            inputData.StartDate = billingStartDateText;
+            inputData.EndDate = billingEndDateText;
+            inputData.CustomerName = selectedBillingRecipient;
+
+            List<SeikyuSearchBillingModel> BillingData = BLL.SearchGetBillingInfo(inputData);
+            LblDisplayCount.Text = BillingData.Count.ToString();
+
+            DgbBillingInfoGridView.DataSource = BillingData;
+
+            //総表示数
+            SeikyuAllCountModel param = new SeikyuAllCountModel();
+            param.DeleteFlag = CkbxShowDeleted.Checked.ToString();
+            List<SeikyuAllCountModel> AllCount = BLL.GetAllInfo(param);
+            LblTotalCount.Text = AllCount.Count.ToString();
+
+        }
+
+        /// <summary>
+        /// グリットビューのデータフォーマットを整える
+        /// </summary>
+        public void dataFormat()
+        {
+            foreach (DataGridViewColumn column in DgbBillingInfoGridView.Columns)
+            {
+                if (column.DataPropertyName == "BillingNo" || column.DataPropertyName == "BillingAmount" || column.DataPropertyName == "BillingTax" || column.DataPropertyName == "TransportationAmount" || column.DataPropertyName == "BillingTotal" || column.DataPropertyName == "PaymentType")
+                {
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    column.DefaultCellStyle.Format = "N0";
+                }
+                else if (column.DataPropertyName == "CustomerName")
+                {
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                }
+                else
+                {
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+            }
+        }
+
+
+        private void changeStartDate(object sender, EventArgs e)
+        {
+            DateTime startDate = DtbBillingStartDate.Value;
+            DtbBillingEndDate.MinDate = startDate;
+        }
+
+        private void BtnNextButton_Click(object sender, EventArgs e)
+        {
+            InitializeComponent();
+        }
+
+        private void BtnPreviousButton_Click(object sender, EventArgs e)
+        {
+            InitializeComponent();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            //InitializeComponent();
+        }
+
+        private void a_Click(object sender, EventArgs e)
+        {
+            //InitializeComponent();
+        }
+    }
+}

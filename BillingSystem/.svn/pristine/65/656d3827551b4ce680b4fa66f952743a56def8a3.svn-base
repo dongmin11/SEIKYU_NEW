@@ -1,0 +1,63 @@
+﻿using BillingSystem.Common;
+using Common;
+using System;
+using System.Windows.Forms;
+using Utils;
+
+namespace BillingSystem.Menu
+{
+    public partial class SeikyuMenuFrm : Form
+    {
+        #region 変数        
+        /// <summary>
+        /// ログ
+        /// </summary>
+        protected ILogUtil log;
+        /// <summary>
+        /// メッセージINIファイル
+        /// </summary>
+        protected MyMessageIniFile myMsgIni;
+        /// <summary>
+        /// メニューメイン情報
+        /// </summary>
+        private MenuMainFrm mainFrm;
+        #endregion
+
+        #region コンストラクタ
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="f"></param>
+        public SeikyuMenuFrm(MenuMainFrm f)
+        {
+            InitializeComponent();
+            log = new LogUtil();
+            myMsgIni = new MyMessageIniFile();
+            mainFrm = f;
+        }
+        #endregion
+
+        #region コンストラクタ
+        /// <summary>
+        /// 請求書クリック処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btSeikyu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SeikyuFrm seikyuFrm = new SeikyuFrm();
+                                                                                                seikyuFrm.Show(this);
+                mainFrm.Hide();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                string msg = myMsgIni.GetString(ConstCommon.MESSAGE, ConstCommon.IMG9999);
+                MessageBox.Show(msg);
+            }
+        }
+        #endregion
+    }
+}

@@ -1,0 +1,182 @@
+﻿using BillingSystem.BaseFrom;
+using BillingSystem.BLL;
+using BillingSystem.Models;
+using Common;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+
+namespace BillingSystem.Master
+{
+    public partial class CompanyFrm : BaseFrm
+    {
+        #region コンストラクタ
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public CompanyFrm()
+        {
+            InitializeComponent();
+        }
+        #endregion
+
+        #region ページロード        
+        /// <summary>
+        /// ページロード
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CompanyFrm_Load(object sender, System.EventArgs e)
+        {
+            dgvCompanyList.AutoGenerateColumns = false;
+            base.LblProcessName.Text = "会社マスタ";
+        }
+        #endregion
+
+        #region 検索ボタン処理        
+        /// <summary>
+        /// 検索ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSearch_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                // 検索実行
+                SearchExecution();
+            }
+            catch (Exception ex)
+            {
+                // エラーログ出力
+                log.Error(ex.Message);
+                // メッセージで表示する
+                string msg = myMsgIni.GetString(ConstCommon.MESSAGE, ConstCommon.IMG9999);
+                MessageBox.Show(msg);
+            }
+        }
+        #endregion
+
+        #region 新規作成ボタン処理
+        /// <summary>
+        /// 新規作成ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCreateNew_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                CompanyDetailFrm detailFrm = new CompanyDetailFrm();
+                // ダイアログで開く
+                detailFrm.ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                // エラーログ出力
+                log.Error(ex.Message);
+                // メッセージで表示する
+                string msg = myMsgIni.GetString(ConstCommon.MESSAGE, ConstCommon.IMG9999);
+                MessageBox.Show(msg);
+            }
+        }
+        #endregion
+
+        #region 検索条件クリア
+        /// <summary>
+        /// 検索条件クリア
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSearchClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.txtCompanyName.Text = string.Empty;
+            }
+            catch (Exception ex)
+            {
+                // エラーログ出力
+                log.Error(ex.Message);
+                // メッセージで表示する
+                string msg = myMsgIni.GetString(ConstCommon.MESSAGE, ConstCommon.IMG9999);
+                MessageBox.Show(msg);
+            }
+        }
+        #endregion
+
+        #region 行選択イベント処理
+        /// <summary>
+        /// 行選択イベント処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvCompanyList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                //列ヘッダーをクリックした場合などにキャンセルする。
+                if (e.RowIndex < 0)
+                {
+                    return;
+                }
+
+                //クリックした列が対象列かチェックする。
+                DataGridView dgv = (DataGridView)sender;
+                if (dgv.Columns[e.ColumnIndex].Name == "Detail")
+                {
+                    CompanyDetailFrm detailFrm = new CompanyDetailFrm();
+                    CompanyModel model = new CompanyModel();
+                    var datarow = dgv.CurrentRow;
+                    // 行情報取得
+                    model = datarow.DataBoundItem as CompanyModel;
+                    // 詳細画面へ渡す
+                    detailFrm.companyData = model;
+                    // 親フォームを指定
+                    detailFrm.Owner = this;
+                    // ダイアログで開く
+                    detailFrm.ShowDialog(this);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                // エラーログ出力
+                log.Error(ex.Message);
+                // メッセージで表示すｒ
+                string msg = myMsgIni.GetString(ConstCommon.MESSAGE, ConstCommon.IMG9999);
+                MessageBox.Show(msg);
+            }
+        }
+        #endregion
+
+        #region 検索実行
+        /// <summary>
+        /// 検索実行
+        /// </summary>
+        public void SearchExecution()
+        {
+            CompanyBLL bll = new CompanyBLL();
+            CompanyModel inputData = new CompanyModel();
+            List<CompanyModel> outputData = new List<CompanyModel>();
+            // 会社名
+            inputData.CompanyName = this.txtCompanyName.Text;
+            
+            // データ取得
+            outputData = bll.GetCompanyInfo(inputData);
+            if (outputData != null && outputData.Count > 0)
+            {
+                dgvCompanyList.DataSource = outputData;
+            }
+            else
+            {
+                // データが存在しなかったら、メッセージで表示する
+                dgvCompanyList.DataSource = null;
+                string msg = myMsgIni.GetString(ConstCommon.MESSAGE, ConstCommon.IMG0003);
+                MessageBox.Show(msg);
+            }
+        }
+        #endregion
+       
+    }
+}

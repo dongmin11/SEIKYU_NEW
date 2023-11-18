@@ -1,0 +1,4 @@
+"ID","BankCode","BankName","BranchCode","BranchName","AccountNo","AccountName","DeleteFlag","CreatUserID","CreatDateTime","UpdateUserID","UpdateDateTime","LockVer"
+1,"001","みずほ銀行","003","池袋西口支店","698536","テスト　カイシャ",0,,,,,0
+2,"002","三井住友銀行","001","池袋支店","698746","ネットワーク",0,,,,,0
+3,"002","三井住友銀行","002","池袋支店","123456","ネットワーク",0,,,,,0

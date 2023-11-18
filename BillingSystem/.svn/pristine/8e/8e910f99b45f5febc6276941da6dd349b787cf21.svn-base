@@ -1,0 +1,268 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using BillingSystem.BLL;
+using BillingSystem.Models;
+using BillingSystem.Models.TableModel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
+
+namespace BillingSystem
+{
+    public partial class SeikyuEditFrm : BillingSystem.BaseFrom.BaseFrm
+    {
+        SeikyuEditBLL BLL = new SeikyuEditBLL();
+        /// <summary>
+        /// SeikyuFrmからのID受け取り用
+        /// </summary>
+        public string ID { get; set; }
+
+        /// <summary>
+        /// 0:詳細ボタン
+        /// 1:新規作成ボタン
+        /// 2:新規複写ボタン
+        /// </summary>
+        public string Mode {  get; set; }
+        public SeikyuEditFrm(string mode, string id = null)
+        {
+            InitializeComponent();
+            this.ID = id;
+
+            DgbBillingDetail.AutoGenerateColumns = false;
+
+            // 口座一覧コンボックス値取得
+            BankAccountModel BankAccountInputData = new BankAccountModel();
+            List<BankAccountModel> BankAccountData = BLL.GetBankAccountName(BankAccountInputData);
+            CmbBankAccount.DataSource = BankAccountData;
+
+            // 支払い条件名コンボックス値取得
+            PaymentTypeModel PaymentTypeInputData = new PaymentTypeModel();
+            List<PaymentTypeModel> PaymentTypeData = BLL.GetPaymentInfo(PaymentTypeInputData);
+            CmbPaymentType.DataSource = PaymentTypeData;
+
+            // プロジェクト名一覧コンボックス値取得
+            ProjectModel ProjectInputData = new ProjectModel();
+            List<ProjectModel> ProjectData = BLL.GetProjectInfo (ProjectInputData);
+            CmbProjectName.DataSource = ProjectData;
+
+            // 部署一覧コンボックス値取得
+            DepartmentModel DepartmentInputData = new DepartmentModel();
+            List<DepartmentModel> DepartmentData = BLL.GetDepartmentInfo(DepartmentInputData);
+            CmbDepartment.DataSource = DepartmentData;
+
+            // 請求先名称一覧コンボックス値取得
+            CustomerModel CustomerInputData = new CustomerModel();
+            List<CustomerModel> CustomerData = BLL.GetCustomerInfo(CustomerInputData);
+            CmbCustomerName.DataSource = CustomerData;
+            
+            // 担当者名一覧コンボックス値取得
+            UserModel ManagerInputData = new UserModel();
+            List<UserModel> ManagerData = BLL.GetUserInfo(ManagerInputData);
+            CmbManagerName.DataSource = ManagerData;
+
+
+
+            if (mode == Common.UpdateModeConst.Edit)//詳細ボタン処理
+            {
+
+                //詳細を表示するレコードデータ取得
+                SeikyuEditBillingModel SeikyuInputData = new SeikyuEditBillingModel();
+                SeikyuInputData.ID = id;
+                List<SeikyuEditBillingModel> BillingData = BLL.GetBillingDetail(SeikyuInputData);
+
+                //各項目データを変数に格納
+                DateTime BillingDate = BillingData[0].BillingDate;
+                string BillingNo = BillingData[0].BillingNo;
+                string BranchNo = BillingData[0].BranchNo;
+                string OrderNo = BillingData[0].OrderNo;
+                string ProjectContent = BillingData[0].ProjectContent;
+                string ProjectAdd = BillingData[0].ProjectAdd;
+                string Deliverables = BillingData[0].Deliverables;
+                string CustomeID = BillingData[0].CustomeID;
+                string ManagerID = BillingData[0].ManagerID;
+                string AccountID = BillingData[0].BankAccountID;
+                string PaymentType = BillingData[0].PaymentType;
+
+                DateTime firstDayOfMonth = new DateTime(BillingDate.Year, BillingDate.Month, 1);
+                DateTime lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+                DtpProjectStartDate.Value = firstDayOfMonth;
+                DtpProjectEndDate.Value = lastDayOfMonth;
+
+                //各項目データを表示
+                DtbBillingDate.Text = BillingDate.ToString();
+                TxtBillingNo.Text = BillingNo;
+                TxtBranchNo.Text = BranchNo;
+                CmbCustomerName.SelectedValue = CustomeID;
+                CmbManagerName.SelectedValue = ManagerID;
+                CmbProjectName.SelectedValue = OrderNo;
+                TxtOrderNo.Text = OrderNo;
+                TxtProjectContent.Text = ProjectContent;
+                TxtProjectAdd .Text = ProjectAdd;
+                TxtDelivarables .Text = Deliverables;
+                CmbBankAccount.SelectedValue = AccountID;
+                CmbPaymentType.SelectedValue = PaymentType;
+
+                //詳細明細をグリットビューに表示
+                string TargetID = BillingData[0].ID;
+                SeikyuEditDetailsModel DetailInputData = new SeikyuEditDetailsModel();
+                DetailInputData.ID = TargetID;
+                List<SeikyuEditDetailsModel> BillingDetail = BLL.GetBillingGdbDetail(DetailInputData);
+                DgbBillingDetail.DataSource = BillingDetail;
+
+                int BillingAmount = 0;
+                int Transportion = 0;
+
+                //金額計算
+                foreach (var item in BillingDetail)
+                {
+                    BillingAmount += item.BillingAmount;
+                    Transportion += item.TransportationAmount;
+                }
+
+                TxtAllBillingAmount.Text = BillingAmount.ToString("N0");
+                TxtAllBillingTax.Text = (BillingAmount * 0.1).ToString("N0");
+                TxtAllBillingTransportion.Text = Transportion.ToString("N0");
+                TxtAllBillingTotal.Text = (BillingAmount + BillingAmount * 0.1 + Transportion).ToString("N0");
+
+                BaseFromInitialize("請求書作成(編集)", ButtonData.GetSeikyuEditFrm("0", LoginInfo.Department));
+            }
+            else if(mode == Common.UpdateModeConst.New)//新規作成ボタン処理
+            {
+                BaseFromInitialize("請求書作成(新規)", ButtonData.GetSeikyuEditFrm("0", LoginInfo.Department));
+
+            }
+            else if(mode == Common.UpdateModeConst.Copy)//新規複写ボタン処理
+            {
+                BaseFromInitialize("請求書作成(複写)", ButtonData.GetSeikyuEditFrm("0", LoginInfo.Department));
+            }
+
+        }
+
+
+        public void RemoveEvent(object sender, EventArgs e)
+        {
+            // ログ出力
+            log.Info("test");
+           
+        }
+
+
+        public void BtnApproval_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
+        }
+
+        public void BtnComplete_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
+        }
+
+        public void BtnSended_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
+        }
+
+        public void BtnSave_Click(object sender, EventArgs e)
+        {
+            DateTime BillingDate = DateTime.Parse(DtbBillingDate.Text);
+            string BillingNo = TxtBillingNo.Text;
+            string BranchNo = TxtBranchNo.Text;
+            string CustomerID = CmbCustomerName.SelectedValue.ToString();
+            string ManagerID = CmbManagerName.SelectedValue.ToString();
+            string OrderNo = TxtOrderNo.Text;
+            string ProjectContent = TxtProjectContent.Text;
+            string ProjectAdd = TxtProjectAdd.Text;
+            string Delivarables = TxtDelivarables.Text;
+            string BankAccountID = CmbBankAccount.SelectedValue.ToString();
+            string PaymentType = CmbPaymentType.SelectedValue.ToString();
+
+            DateTime firstDayOfMonth = new DateTime(BillingDate.Year, BillingDate.Month, 1);
+            DateTime lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+
+            // 請求一覧更新
+            SeikyuEditBillingModel InsertData = new SeikyuEditBillingModel();
+            InsertData.BillingDate = BillingDate;
+            InsertData.BillingFromDate = firstDayOfMonth;
+            InsertData.BillingToDate = lastDayOfMonth;
+            InsertData.BillingNo = BillingNo;
+            InsertData.BranchNo = BranchNo;
+            InsertData.CustomeID = CustomerID;
+            InsertData.ManagerID = ManagerID;
+            InsertData.OrderNo = OrderNo;
+            InsertData.ProjectContent = ProjectContent;
+            InsertData.ProjectAdd = ProjectAdd;
+            InsertData.Deliverables = Delivarables;
+            InsertData.BankAccountID = BankAccountID;
+            InsertData.PaymentType = PaymentType;
+            InsertData.ID = ID;
+
+            int aa = BLL.BillingInsert(InsertData);
+            this.Close();
+
+        }
+
+        public void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            DateTime BillingDate = DateTime.Parse(DtbBillingDate.Text);
+            string BillingNo = TxtBillingNo.Text;
+            string BranchNo = TxtBranchNo.Text;
+            string CustomerID = CmbCustomerName.SelectedValue.ToString();
+            string ManagerID = CmbManagerName.SelectedValue.ToString();
+            string OrderNo = TxtOrderNo.Text;
+            string ProjectContent = TxtProjectContent.Text;
+            string ProjectAdd = TxtProjectAdd.Text;
+            string Delivarables = TxtDelivarables.Text;
+            string BankAccountID = CmbBankAccount.SelectedValue.ToString();
+            string PaymentType = CmbPaymentType.SelectedValue.ToString();
+
+            // 請求一覧更新
+            SeikyuEditBillingModel UpdateData = new SeikyuEditBillingModel();
+            UpdateData.BillingDate = BillingDate;
+            UpdateData.BillingNo = BillingNo;
+            UpdateData.BranchNo = BranchNo;
+            UpdateData.CustomeID = CustomerID;
+            UpdateData.ManagerID = ManagerID;
+            UpdateData.OrderNo = OrderNo;
+            UpdateData.ProjectContent = ProjectContent;
+            UpdateData.ProjectAdd = ProjectAdd;
+            UpdateData.Deliverables = Delivarables;
+            UpdateData.BankAccountID = BankAccountID;
+            UpdateData.PaymentType = PaymentType;
+            UpdateData.ID = ID;
+
+            int aa = BLL.BillingUpdate(UpdateData);
+            this.Close();
+
+        }
+
+        public void BtnDelete_Click(object sender, EventArgs e)
+        {
+            
+            this.Close();
+
+        }
+
+
+        public void btnClose_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
+        }
+
+        private void ChangeCustomerName(object sender, EventArgs e)
+        {
+            string CustomID = CmbCustomerName.SelectedValue.ToString();
+
+        }
+    }
+}

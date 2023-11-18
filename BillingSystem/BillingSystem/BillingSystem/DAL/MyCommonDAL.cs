@@ -1,0 +1,77 @@
+﻿using BillingSystem.Models;
+using Common.DAL;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text;
+
+namespace BillingSystem.DAL
+{
+    public class MyCommonDAL : CommonDAL
+    {
+        #region ユーザ情報を取得
+        /// <summary>
+        /// ユーザ情報を取得
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<UserModel> GetAccoutInfo(UserModel inputData)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" SELECT *");
+            sb.Append(" FROM");
+            sb.Append("     M_User");
+            sb.Append(" WHERE");
+            sb.Append("     LoginID = @LoginID");
+            sb.Append("     AND Password = @Password");
+
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(inputData);
+            // SQL文実行
+            DataTable dt = RunSqlDataTable(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            var result = ConvertDataTableToListClass<UserModel>(dt);
+
+            return result;
+        }
+        #endregion
+
+        #region IDでコードリストを取得
+        /// <summary>
+        /// コードリストから取得
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public List<CodeListModel> GetCodeList(CodeListModel model)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" SELECT");
+            sb.Append("     KindID");
+            sb.Append("    ,Code");
+            sb.Append("    ,Name");
+            sb.Append("    ,DisplayNo");
+            sb.Append(" FROM");
+            sb.Append("     M_Code");
+            sb.Append(" WHERE");
+            sb.Append("     KindID = @KindID");
+            if (!string.IsNullOrEmpty(model.Code))
+            {
+                sb.Append("     AND Code = @Code");
+            }
+            sb.Append("     ORDER BY DisplayNo ");
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(model);
+            // SQL文実行
+            DataTable dt = RunSqlDataTable(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            var result = ConvertDataTableToListClass<CodeListModel>(dt);
+
+            return result;
+        }
+        #endregion
+    }
+}

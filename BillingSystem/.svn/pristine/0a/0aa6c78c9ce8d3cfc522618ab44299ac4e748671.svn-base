@@ -1,0 +1,35 @@
+2023-11-12 12:21:34,080  ERROR（BillingSystem.Menu.MenuMainFrm:btnMenuMain_Load）-トップレベルのコントロールにのみ、オーナーを指定できます。
+パラメーター名:value
+2023-11-12 12:22:17,119  ERROR（BillingSystem.Menu.MenuMainFrm:btnMenuMain_Load）-トップレベルのコントロールにのみ、オーナーを指定できます。
+パラメーター名:value
+2023-11-12 12:22:59,667  ERROR（BillingSystem.Menu.MenuMainFrm:btnMenuMain_Load）-トップレベルのコントロールにのみ、オーナーを指定できます。
+パラメーター名:value
+2023-11-12 12:34:23,617  ERROR（BillingSystem.Menu.MenuMainFrm:btnMenuMain_Load）-トップ レベルのフォームでないフォームをモーダル ダイアログ ボックスとして表示できません。Show を呼び出す前に、親からフォームを削除してください。
+2023-11-12 12:35:07,928  ERROR（BillingSystem.Menu.MenuMainFrm:btnMenuMain_Load）-トップ レベルのフォームでないフォームをモーダル ダイアログ ボックスとして表示できません。Show を呼び出す前に、親からフォームを削除してください。
+2023-11-12 12:35:49,595  ERROR（BillingSystem.Menu.MenuMainFrm:btnMenuMain_Load）-トップ レベルのフォームでないフォームをモーダル ダイアログ ボックスとして表示できません。Show を呼び出す前に、親からフォームを削除してください。
+2023-11-12 12:38:21,312  ERROR（BillingSystem.Menu.MenuMainFrm:btnMenuMain_Load）-トップ レベルのフォームでないフォームをモーダル ダイアログ ボックスとして表示できません。Show を呼び出す前に、親からフォームを削除してください。
+2023-11-13 10:58:42,790  ERROR（BillingSystem.Menu.SeikyuMenuFrm:btSeikyu_Click）-値を Null にすることはできません。
+パラメーター名:method
+2023-11-13 10:59:54,696  ERROR（BillingSystem.Menu.SeikyuMenuFrm:btSeikyu_Click）-値を Null にすることはできません。
+パラメーター名:method
+2023-11-13 11:00:33,652  ERROR（BillingSystem.Menu.SeikyuMenuFrm:btSeikyu_Click）-値を Null にすることはできません。
+パラメーター名:method
+2023-11-13 11:15:29,760  ERROR（BillingSystem.Menu.SeikyuMenuFrm:btSeikyu_Click）-値を Null にすることはできません。
+パラメーター名:method
+2023-11-13 11:15:49,129  ERROR（BillingSystem.Menu.SeikyuMenuFrm:btSeikyu_Click）-値を Null にすることはできません。
+パラメーター名:method
+2023-11-13 11:15:57,494  ERROR（BillingSystem.Menu.SeikyuMenuFrm:btSeikyu_Click）-値を Null にすることはできません。
+パラメーター名:method
+2023-11-13 15:27:37,043  ERROR（BillingSystem.LoginFrm:BtnLogin_Click）-オブジェクト参照がオブジェクト インスタンスに設定されていません。
+2023-11-13 15:28:04,426  ERROR（BillingSystem.LoginFrm:BtnLogin_Click）-オブジェクト参照がオブジェクト インスタンスに設定されていません。
+2023-11-13 15:28:38,870  ERROR（BillingSystem.LoginFrm:BtnLogin_Click）-オブジェクト参照がオブジェクト インスタンスに設定されていません。
+2023-11-15 13:09:53,125  ERROR（BillingSystem.Menu.SeikyuMenuFrm:btSeikyu_Click）-Complex DataBinding は IList または IListSource のどちらかをデータソースとして受け入れます。
+2023-11-15 13:10:52,995  ERROR（BillingSystem.Menu.SeikyuMenuFrm:btSeikyu_Click）-Complex DataBinding は IList または IListSource のどちらかをデータソースとして受け入れます。
+2023-11-15 13:11:17,715  ERROR（BillingSystem.Menu.SeikyuMenuFrm:btSeikyu_Click）-Complex DataBinding は IList または IListSource のどちらかをデータソースとして受け入れます。
+2023-11-15 15:56:11,043  ERROR（BillingSystem.Menu.SeikyuMenuFrm:btSeikyu_Click）-値を Null にすることはできません。
+パラメーター名:method
+2023-11-15 16:26:36,262  ERROR（BillingSystem.Menu.SeikyuMenuFrm:btSeikyu_Click）-'0' の値は 'RowCount' に対して有効ではありません。'RowCount' は 1 以上でなければなりません。
+パラメーター名:RowCount
+2023-11-15 16:29:01,259  ERROR（BillingSystem.Menu.SeikyuMenuFrm:btSeikyu_Click）-コミットされていない新しい行を非表示にすることはできません。
+2023-11-15 16:30:44,156  ERROR（BillingSystem.Menu.SeikyuMenuFrm:btSeikyu_Click）-インデックスが範囲を超えています。負でない値で、コレクションのサイズよりも小さくなければなりません。
+パラメーター名:index

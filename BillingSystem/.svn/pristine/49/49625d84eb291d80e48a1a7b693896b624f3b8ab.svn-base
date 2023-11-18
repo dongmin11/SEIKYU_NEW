@@ -1,0 +1,336 @@
+﻿using BillingSystem.BLL;
+using BillingSystem.Common;
+using BillingSystem.Models;
+using Common;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Windows.Forms;
+using Utils;
+
+namespace BillingSystem.Master
+{
+    public partial class CompanyDetailFrm : Form
+    {
+        /// <summary>
+        /// ログ
+        /// </summary>
+        protected ILogUtil log;
+        /// <summary>
+        /// メッセージINIファイル
+        /// </summary>
+        protected MyMessageIniFile myMsgIni;
+
+        #region プロパティ
+        private CompanyModel _companyData = new CompanyModel();
+        /// <summary>
+        /// 会社情報
+        /// </summary>
+        public CompanyModel companyData
+        {
+            set
+            {
+                _companyData = value;
+            }
+            get
+            {
+                return _companyData;
+            }
+        }
+        #endregion
+
+        #region コンストラクタ
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public CompanyDetailFrm()
+        {
+            InitializeComponent();
+            log = new LogUtil();
+            myMsgIni = new MyMessageIniFile();
+        }
+        #endregion
+
+        #region ページロード        
+        /// <summary>
+        /// ページロード
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CompanyDetailFrmDetailFrm_Load(object sender, EventArgs e)
+        {
+            // データ初期化
+            IniLoad();
+            // 画面初期化
+            Syokika();
+        }
+        #endregion
+
+        #region ファイル選択ダイアログ        
+        /// <summary>
+        /// ファイル選択ダイアログ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofDialog = new OpenFileDialog();
+            // デフォルトのフォルダを指定する
+            ofDialog.InitialDirectory = @"C:";
+
+            //ダイアログのタイトルを指定する
+            ofDialog.Title = "ダイアログのタイトル";
+
+            //ダイアログを表示する
+            if (ofDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.TxtCompanySealFile.Text = ofDialog.FileName;
+            }
+            else
+            {
+                this.TxtCompanySealFile.Text = string.Empty;
+            }
+
+            // オブジェクトを破棄する
+            ofDialog.Dispose();
+        }
+        #endregion        
+
+        #region 保存ボタン処理
+        /// <summary>
+        /// 保存ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 必須チェック
+                string msg = DataCheck();
+                if (!string.IsNullOrEmpty(msg))
+                {
+                    MessageBox.Show(msg);
+                    return;
+                }
+                var stream = new FileStream(this.TxtCompanySealFile.Text, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(stream);
+                byte[] data;    //データを格納する変数
+
+                //ファイルサイズを求める
+                FileInfo fi = new FileInfo(stream.Name);
+                long filesize = fi.Length;
+
+                //配列の長さをファイルサイズにして定義
+
+                data = new byte[filesize];
+
+                //１バイトずつ取得しながら１６進数で表示
+
+                int cnt = 1;
+                for (long i = 1; i < filesize; i++)
+                {
+                    data[i] = br.ReadByte();
+                    Console.Write("{0,2:x} ", data[i]);
+
+
+                    //25個表示したら改行
+                    if (cnt == 25)
+                    {
+                        Console.WriteLine();
+                        cnt = 0;
+                    }
+                    cnt++;
+                }
+
+                CompanyBLL bLL = new CompanyBLL();
+                bLL.SaveCompanyInfo(new CompanyModel(), data);
+                
+
+                // 登録情報取得
+                //UserModel inputData = GetUserInfoData();
+
+                //UserBLL bll = new UserBLL();  
+                //// 新規の場合、ログインIDが存在するチェック
+                //if (companyData.ID==0)
+                //{
+                //    if (bll.IsLoginIdExist(inputData.LoginID))
+                //    {
+                //        // メッセージで表示
+                //        msg = myMsgIni.GetString(ConstCommon.MESSAGE, ConstCommon.IMG0005);
+                //        MessageBox.Show(msg);
+                //        return;
+                //    }
+                //}
+                //// 登録実行
+                //int result = bll.SaveUserInfo(inputData);
+                //if (result == 1)
+                //{
+                //    // 子フォームを閉じる
+                //    this.Close();
+                //    // 親フォームでメソッドを呼び出す（再検索）
+                //    ((UserFrm)this.Owner).SearchExecution();
+                //}
+                //else
+                //{
+                //    msg = myMsgIni.GetString(ConstCommon.MESSAGE, ConstCommon.IMG0006);
+                //    MessageBox.Show(msg);
+                //}
+
+            }
+            catch (Exception ex)
+            {
+                // エラーログ出力
+                log.Error(ex.Message);
+                // メッセージで表示
+                string msg = myMsgIni.GetString(ConstCommon.MESSAGE, ConstCommon.IMG9999);
+                MessageBox.Show(msg);
+            }
+        }
+        #endregion
+
+        #region 閉じる
+        /// <summary>
+        /// 閉じる
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
+        #region データ初期化
+        /// <summary>
+        /// データ初期化
+        /// </summary>
+        private void IniLoad()
+        {
+            // 権限コンボボックス初期化
+            MyCommonBLL bll = new MyCommonBLL();
+            CodeListModel codeList = new CodeListModel();
+            // 端数
+            codeList.KindID = ConstCommon.KINDID_1002;
+            CmbFraction.DataSource = bll.GetCodeList(codeList);
+        }
+        #endregion
+
+        #region 画面表示項目初期化
+        /// <summary>
+        /// 画面表示項目初期化
+        /// </summary>
+        private void Syokika()
+        {
+            CompanyBLL bll = new CompanyBLL();
+            CompanyModel model = new CompanyModel();
+            CompanyModel company = bll.GetCompanyInfo(model);
+            if (company == null) company = new CompanyModel();
+            this.TxtCompanyName.Text = company.CompanyName.NullToString();
+            this.TxtPostNo.Text = company.PostNo.NullToString();
+            this.TxtAddress.Text = company.Address.NullToString();
+            this.TxtTel.Text = company.Tel.NullToString();
+            this.NumTax.Text = company.Tax != null ? company.Tax.NullToString() : "0.10";
+            this.CmbFraction.SelectedValue = company.Fraction.NullToString();
+            this.TxtInvoiceNo.Text = company.InvoiceNo.NullToString();
+            this.TxtCompanySealFile.Text =string.Empty;
+            this.LblSealName.Text = company.CompanySealName.NullToString();
+        }
+        #endregion
+
+        #region 必須項目チェック
+        /// <summary>
+        /// 必須項目チェック
+        /// </summary>
+        /// <returns></returns>
+        private string DataCheck()
+        {
+            string msg = string.Empty;
+            // ログインID
+            if (string.IsNullOrEmpty(TxtCompanyName.Text))
+            {
+                string strMsg = string.Format(myMsgIni.GetString(ConstCommon.MESSAGE, ConstCommon.IMG0002), "ログインID");
+                if (string.IsNullOrEmpty(msg))
+                {
+                    msg += strMsg;
+                }
+                else
+                {
+                    msg += Environment.NewLine;
+                    msg += strMsg;
+                }
+            }
+            // 氏名
+            if (string.IsNullOrEmpty(TxtPostNo.Text))
+            {
+                string strMsg = string.Format(myMsgIni.GetString(ConstCommon.MESSAGE, ConstCommon.IMG0002), "氏名");
+                if (string.IsNullOrEmpty(msg))
+                {
+                    msg += strMsg;
+                }
+                else
+                {
+                    msg += Environment.NewLine;
+                    msg += strMsg;
+                }
+            }
+            // 新規の場合、パスワード初期化チェックボックス自動的に選択状態にする
+            
+
+            return msg;
+        }
+        #endregion
+
+        #region 登録情報取得
+        /// <summary>
+        /// 登録情報取得
+        /// </summary>
+        /// <returns></returns>
+        private CompanyModel GetUserInfoData()
+        {
+            CommonUtil commonUtil = new CommonUtil();
+            CompanyModel inputData = new CompanyModel();
+            // ID
+            inputData.ID = companyData.ID;
+            //// ログインID
+            //inputData.LoginID = this.txtLoginID.Text;
+            //// 氏名
+            //inputData.UserName = this.txtUserName.Text;
+            
+            //// 略称
+            //inputData.UserShortName = this.txtTel.Text;
+            
+            //// 権限
+            //inputData.AuthorityFlag = cbAuthorityFlag.SelectedValue.ToString();
+            //// 捺印ファイル
+            //if (commonUtil.IsFileExist(this.txtSealFilePath.Text))
+            //{
+            //    inputData.SealFile = commonUtil.ReadBinary(txtSealFilePath.Text);
+            //    inputData.SealName = Path.GetFileName(txtSealFilePath.Text);
+            //}
+           
+            //// 備考
+            //inputData.Note = this.txtAddress.Text;
+            //// ロックID
+            //inputData.LockVer = userData.LockVer;
+            //// 作成者ID
+            //inputData.CreatUserID = LoginInfo.ID;
+            //// 更新者ID
+            //inputData.UpdateUserID = LoginInfo.ID;
+
+
+            return inputData;
+        }
+        #endregion
+
+        private void CompanyDetailFrm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //呼出元表示
+            if (this.Owner != null)
+            {
+                this.Owner.Show();
+                this.Owner.TopMost = true;
+            }
+        }
+    }
+}

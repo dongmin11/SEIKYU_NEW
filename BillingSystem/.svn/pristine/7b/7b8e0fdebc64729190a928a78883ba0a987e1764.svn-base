@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using BillingSystem.Models;
+
+namespace BillingSystem
+{
+    public partial class SeikyuEditFrm : BillingSystem.BaseFrom.BaseFrm
+    {
+        public SeikyuSearchBillingModel aaa = new SeikyuSearchBillingModel();
+        public SeikyuEditFrm()
+        {
+            InitializeComponent();
+
+            BaseFromInitialize("請求書作成(新規)", ButtonData.GetSeikyuEditFrm("0", LoginInfo.Department));
+
+
+            dataGridView1.Rows.Add("佐藤 二郎", "200", "700,000", "140H", "4,000", "-14,142", "180H", "5,000", "999,999", "9,999,999", "999,999,999", "9,999,999");
+            dataGridView1.Rows.Add("林　てすあ", "140", "999,999", "140H", "4,000", "-14,142", "180H", "5,000", "999,999", "9,999,999", "999,999,999", "9,999,999");
+            dataGridView1.Rows.Add("陳　テスト", "999", "9,999,999", "140H", "4,000", "-14,142", "180H", "5,000", "999,999", "9,999,999", "999,999,999", "9,999,999");
+            dataGridView1.Rows.Add("テスト ユーザー", "999", "9,999,999", "140H", "4,000", "-14,142", "180H", "5,000", "999,999", "9,999,999", "999,999,999", "9,999,999");
+            //this.dataGridView1.Rows.Add()
+        }
+
+
+        public void RemoveEvent(object sender, EventArgs e)
+        {
+            // ログ出力
+            log.Info("test");
+           
+        }
+
+
+        public void b_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
+        }
+
+
+        public void btnClose_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
+        }
+    }
+}

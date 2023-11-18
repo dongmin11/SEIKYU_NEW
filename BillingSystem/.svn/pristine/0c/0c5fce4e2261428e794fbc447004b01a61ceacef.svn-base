@@ -1,0 +1,94 @@
+﻿using BillingSystem.BLL;
+using BillingSystem.Common;
+using BillingSystem.Menu;
+using BillingSystem.Models;
+using Common;
+using System;
+using System.Windows.Forms;
+using Utils;
+
+namespace BillingSystem
+{
+    public partial class LoginFrm : Form
+    {
+        /// <summary>
+        /// ログ
+        /// </summary>
+        protected ILogUtil log;
+        /// <summary>
+        /// メッセージINIファイル
+        /// </summary>
+        protected MyMessageIniFile myMsgIni;
+        public LoginFrm()
+        {
+            InitializeComponent();
+            myMsgIni = new MyMessageIniFile();
+            log = new LogUtil();
+        }
+
+        /// <summary>
+        /// ログインボタン
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LoginInfo.LoginID = string.Empty;
+                LoginInfo.UserName = string.Empty;
+                LoginInfo.Password = string.Empty;
+                // DBアクセスサンプル
+                //MyCommonBLL bll = new MyCommonBLL();
+                //UserModel inputData = new UserModel();
+                //inputData.LoginID = this.TxtUserID.Text;
+                //inputData.Password = PWDCodingUtil.Encrypt(this.TxtPassword.Text);
+                //UserModel AccountData = bll.GetAccoutInfo(inputData);
+
+                //if (AccountData != null)
+                //{
+                    // ログイン正常の場合、アカウント情報設定する
+                    //LoginInfo.ID = AccountData.ID;
+                    //LoginInfo.LoginID = AccountData.LoginID;
+                    //LoginInfo.UserName = AccountData.UserName;
+                    //LoginInfo.Password = AccountData.Password;
+                    //LoginInfo.UserNameKana = AccountData.UserNameKana;
+                    //LoginInfo.UserShortName = AccountData.UserShortName;
+                    //LoginInfo.Department = AccountData.Department;
+                    //LoginInfo.AuthorityFlag = AccountData.AuthorityFlag;
+                    //LoginInfo.Note = AccountData.Note;
+                    //LoginInfo.DeleteFlag = AccountData.DeleteFlag;
+                    //LoginInfo.LockVer = AccountData.LockVer;
+                    this.Hide();
+                    MenuMainFrm menuFrm = new MenuMainFrm();
+                    //MenuFrm menuFrm = new MenuFrm();
+                    menuFrm.Show(this);
+                //}
+                //else
+                //{
+                //    string msg = myMsgIni.GetString(ConstCommon.MESSAGE, ConstCommon.IMG0001);
+                //    MessageBox.Show(msg); ;
+                //}
+
+               
+            }
+            catch (Exception ex)
+            {
+                string msg = myMsgIni.GetString(ConstCommon.MESSAGE, ConstCommon.IMG9999);
+                log.Error(ex.Message);
+                MessageBox.Show(msg);
+            }
+
+        }
+
+        /// <summary>
+        /// 閉じるボタン
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

@@ -1,0 +1,339 @@
+﻿using BillingSystem.BaseFrom;
+using BillingSystem.BLL;
+using BillingSystem.Models;
+using Common;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
+
+namespace BillingSystem
+{
+    public partial class SeikyuFrm : BaseFrm
+    {
+        SeikyuBLL BLL = new SeikyuBLL();
+        int totalRecord = 0;
+        int appearRecord = 0;
+
+        private List<SeikyuBillingModel> recordListBox;
+        private int EndRow = 2;
+        private int StartRow = 0;
+        private int maxPage = 0;
+
+        public SeikyuFrm()
+        {
+            InitializeComponent();
+
+            // データを生成
+            SeikyuBillingModel inputData = new SeikyuBillingModel();
+            inputData.StartRow = StartRow;
+            inputData.EndRow = EndRow;
+            List<SeikyuBillingModel> BillingData = BLL.GetBillingInfo(inputData);
+            if(StartRow == 0)
+            {
+                LblDisplayCount.Text = (BillingData.Count * 1).ToString();
+            }
+            else
+            {
+                LblDisplayCount.Text = (BillingData.Count * StartRow).ToString();
+            }
+
+
+            //データバインド
+            LoadRecords(BillingData);
+
+            PageInitialSetting();
+
+        }
+
+        private void PageInitialSetting()
+        {
+            //フッターのボタン表示
+            BaseFromInitialize("", ButtonData.GetSeikyuFrm());
+
+            DgbBillingInfoGridView.AutoGenerateColumns = false;
+
+            // 請求先名称一覧取得
+            SeikyuCustomerModel customerInputData = new SeikyuCustomerModel();
+            List<SeikyuCustomerModel> CustomerData = BLL.GetCustomerInfo(customerInputData);
+
+            //請求先一覧に全選択項目追加
+            SeikyuCustomerModel addData = new SeikyuCustomerModel { CustomerName = "全て" };
+            CustomerData.Insert(0, addData);
+
+            CbbxBillingRecipient.DataSource = CustomerData;
+
+            base.LblProcessName.Text = "請求書検索";
+
+            //開始日時の初期値を今月の1日
+            DtbBillingStartDate.Format = DateTimePickerFormat.Custom;
+            DtbBillingStartDate.CustomFormat = "yyyy年MM月dd日";
+            DtbBillingStartDate.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            DtbBillingEndDate.MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+
+            DtbBillingStartDate.Text = DtbBillingStartDate.Value.ToString("yyyy年MM月dd日");
+
+            //終了日時の初期値を今月の最終日に
+            DtbBillingEndDate.Format = DateTimePickerFormat.Custom;
+            DtbBillingEndDate.CustomFormat = "yyyy年MM月dd日";
+            DateTime today = DateTime.Today;
+            DtbBillingEndDate.Value = new DateTime(today.Year, today.Month, DateTime.DaysInMonth(today.Year, today.Month));
+            DtbBillingEndDate.Text = DtbBillingEndDate.Value.ToString("yyyy年MM月dd日");
+
+            //表示件数設定
+            //LblDisplayCount.Text = (recordListBox.Count * currentPage).ToString();
+
+            //総表示数
+            SeikyuAllCountModel param = new SeikyuAllCountModel();
+            param.DeleteFlag = CkbxShowDeleted.Checked.ToString();
+            List<SeikyuAllCountModel> AllCount = BLL.GetAllInfo(param);
+            LblTotalCount.Text = AllCount.Count.ToString();
+        }
+
+        /// <summary>
+        /// 請求一覧表示
+        /// </summary>
+        private void LoadRecords(List<SeikyuBillingModel>BillingData)
+        {
+            // 現在のページのレコードを表示
+            //int startIndex = (currentPage - 1) * recordsPerPage;
+            //int endIndex = Math.Min(startIndex + recordsPerPage, BillingData.Count);
+            //maxPage = endIndex/recordsPerPage;
+
+            //recordListBox = new List<SeikyuBillingModel>();
+
+            //recordListBox.Clear();
+
+            //recordListBoxに表示するレコードをセット
+            //for (int i = startIndex; i < endIndex; i++)
+            //{
+            //    recordListBox.Add(BillingData[i]);
+            //}
+
+            //データバインド
+            //var appearRecordList = recordListBox;
+            DgbBillingInfoGridView.DataSource = BillingData;
+
+            //データ成型
+            dataFormat();
+        }
+
+        /// <summary>
+        /// ListBoxのアイテムをデータテーブルに変換するメソッド
+        /// </summary>
+        /// <param name="billingData"></param>
+        /// <returns></returns>
+        private DataTable ConvertListBoxItemsToDataTable(List<SeikyuBillingModel> billingData)
+        {
+            DataTable table = new DataTable();
+
+            // カラムの追加（1つのカラムのみと仮定）
+            table.Columns.Add("BillingAmount", typeof(string));
+            table.Columns.Add("BillingDate", typeof(string));
+            table.Columns.Add("BillingNo", typeof(string));
+            table.Columns.Add("BillingTax", typeof(string));
+            table.Columns.Add("BillingTotal", typeof(string));
+            table.Columns.Add("CustomerName", typeof(string));
+            table.Columns.Add("PaymentType", typeof(string));
+            table.Columns.Add("TransportationAmount", typeof(string));
+
+            // データの追加
+            foreach (var item in billingData)
+            {
+                table.Rows.Add(
+                item.BillingAmount.ToString(),
+                item.BillingDate.ToString(), // 日付を適切なフォーマットに変換
+                item.BillingNo.ToString(),
+                item.BillingTax.ToString(),
+                item.BillingTotal.ToString(),
+                item.CustomerName.ToString(),
+                item.PaymentType.ToString(),
+                item.TransportationAmount.ToString()
+                );
+            }
+
+            return table;
+        }
+
+
+        /// <summary>
+        /// 検索機能ボタン
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void searchButton(object sender, EventArgs e)
+        {
+            //請求開始日時取得
+            string billingStartDateText = DtbBillingStartDate.Text;
+            DateTime billingStartDate = DateTime.Parse(billingStartDateText);
+            billingStartDateText = billingStartDate.ToString("yyyy-MM-dd");
+
+            //請求終了日時取得
+            string billingEndDateText = DtbBillingEndDate.Text;
+            DateTime billingEndDate = DateTime.Parse(billingEndDateText);
+            billingEndDateText = billingEndDate.ToString("yyyy-MM-dd");
+
+            //選択された請求先取得
+            string selectedBillingRecipient = CbbxBillingRecipient.Text;
+
+            //請求一覧取得
+            SeikyuSearchBillingModel inputData = new SeikyuSearchBillingModel();
+            inputData.DeleteFlag = CkbxShowDeleted.Checked.ToString();
+            inputData.StartDate = billingStartDateText;
+            inputData.EndDate = billingEndDateText;
+            inputData.CustomerName = selectedBillingRecipient;
+
+            List<SeikyuSearchBillingModel> BillingData = BLL.SearchGetBillingInfo(inputData);
+
+            LblDisplayCount.Text = BillingData.Count.ToString();
+
+            DgbBillingInfoGridView.DataSource = BillingData;
+
+            //総表示数
+            SeikyuAllCountModel param = new SeikyuAllCountModel();
+            param.DeleteFlag = CkbxShowDeleted.Checked.ToString();
+            List<SeikyuAllCountModel> AllCount = BLL.GetAllInfo(param);
+            LblTotalCount.Text = AllCount.Count.ToString();
+
+        }
+
+        /// <summary>
+        /// グリットビューのデータフォーマットを整える
+        /// </summary>
+        public void dataFormat()
+        {
+            foreach (DataGridViewColumn column in DgbBillingInfoGridView.Columns)
+            {
+                if (column.DataPropertyName == "BillingNo" || column.DataPropertyName == "BillingAmount" || column.DataPropertyName == "BillingTax" || column.DataPropertyName == "TransportationAmount" || column.DataPropertyName == "BillingTotal" || column.DataPropertyName == "PaymentType")
+                {
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    column.DefaultCellStyle.Format = "N0";
+                }
+                else if (column.DataPropertyName == "CustomerName")
+                {
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                }
+                else
+                {
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+            }
+        }
+
+
+        private void changeStartDate(object sender, EventArgs e)
+        {
+            DateTime startDate = DtbBillingStartDate.Value;
+            DtbBillingEndDate.MinDate = startDate;
+        }
+
+
+        public void btnClose_Click(object sender, EventArgs e)
+        {
+            //InitializeComponent();
+        }
+
+
+        public void BtnDetail_Click(object sender, EventArgs e)
+        {
+            //InitializeComponent();
+        }
+
+        public void BtnInsert_Click(object sender, EventArgs e)
+        {
+            //InitializeComponent();
+            SeikyuEditFrm f = new SeikyuEditFrm();
+            f.Show();
+
+        }
+
+        public void BtnCopy_Click(object sender, EventArgs e)
+        {
+            //InitializeComponent();
+        }
+        public void BtnDelete_Click(object sender, EventArgs e)
+        {
+            //InitializeComponent();
+        }
+
+
+
+        /// <summary>
+        /// 次頁押下時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnNextButton_Click_1(object sender, EventArgs e)
+        {
+            InitializeComponent();
+
+            StartRow += 2;
+            //ページ数が最大の場合は次頁ボタンを押下不能にする
+            //if (currentPage == maxPage)
+            //{
+            //    BtnNextButton.Enabled = false;
+            //}
+
+            BtnPreviousButton.Enabled = true;
+
+            //currentPage++;
+
+            SeikyuBillingModel inputData = new SeikyuBillingModel();
+            inputData.StartRow = StartRow;
+            inputData.EndRow = EndRow;
+            List<SeikyuBillingModel> BillingData = BLL.GetBillingInfo(inputData);
+            if (StartRow == 0)
+            {
+                LblDisplayCount.Text = (BillingData.Count * 1).ToString();
+            }
+            else
+            {
+                LblDisplayCount.Text = (BillingData.Count * StartRow).ToString();
+            }
+
+            LoadRecords(BillingData);
+
+            PageInitialSetting();
+
+
+        }
+
+        /// <summary>
+        /// 前頁押下時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnPreviousButton_Click_1(object sender, EventArgs e)
+        {
+            InitializeComponent();
+            StartRow -= 2;
+            //currentPage--;
+
+            //現在の頁が1の場合は前頁ボタンを押下不能にする
+            if (StartRow != 0)
+            {
+                BtnNextButton.Enabled = true;
+            }
+
+
+            SeikyuBillingModel inputData = new SeikyuBillingModel();
+            inputData.StartRow = StartRow;
+            inputData.EndRow = EndRow;
+            List<SeikyuBillingModel> BillingData = BLL.GetBillingInfo(inputData);
+            if (StartRow == 0)
+            {
+                LblDisplayCount.Text = (BillingData.Count * 1).ToString();
+            }
+            else
+            {
+                LblDisplayCount.Text = (BillingData.Count * StartRow).ToString();
+            }
+
+            LoadRecords(BillingData);
+
+            PageInitialSetting();
+        }
+
+    }
+}

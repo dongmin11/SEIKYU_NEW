@@ -1,0 +1,6 @@
+ID,Type,PaymentTypeName,AddDays,DeleteFlag,DisplayNo,CreatUserID,CreatDateTime,UpdateUserID,UpdateDateTime,LockVer
+1,1,月末締め、翌々月15日現金振込,45,0,1,,,,,0
+2,2,月末締め、翌月15日現金振込,15,0,1,,,,,0
+3,3,月末締め、翌月5日現金振込,5,0,1,,,,,0
+4,4,月末締め、翌々月25日現金振込,55,0,1,,,,,0
+5,5,月末締め、翌々月5日現金振込,35,1,1,,,,,0

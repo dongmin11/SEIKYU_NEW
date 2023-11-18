@@ -1,0 +1,7 @@
+ID,CustomeID,DepartmentName,DepartmentShortName,TelNo,DeleteFlag,DisplayNo,CreatUserID,CreatDateTime,UpdateUserID,UpdateDateTime,LockVer
+1,1,システム1部,SD１,99-9999-9999,0,1,,,,,0
+2,1,システム2部,SD2,99-9999-9999,0,1,,,,,0
+3,1,インフラ部,INF,99-9999-9999,0,1,,,,,0
+4,2,システム1部,SD１,99-9999-9999,0,1,,,,,0
+5,2,システム2部,SD１,99-9999-9999,1,1,,,,,0
+6,3,システム1部,SD１,99-9999-9999,0,1,,,,,0

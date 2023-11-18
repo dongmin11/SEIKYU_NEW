@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BillingSystem.Models
+{
+    public class SeikyuEditDepartmentModel
+    {
+        /// <summary>
+        /// 部署名
+        /// </summary>
+        public string DepartmentName { get; set; }
+}
+}
