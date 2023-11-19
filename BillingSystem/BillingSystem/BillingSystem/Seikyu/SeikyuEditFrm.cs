@@ -192,7 +192,7 @@ namespace BillingSystem
         {
             validation();
 
-
+            //入力された値を取得
             DateTime BillingDate = DateTime.Parse(DtbBillingDate.Text);
             string BillingNo = TxtBillingNo.Text;
             string BranchNo = TxtBranchNo.Text;
@@ -249,10 +249,12 @@ namespace BillingSystem
 
         public void BtnUpdate_Click(object sender, EventArgs e)
         {
+            //排他処理
             SeikyuEditBillingModel InputLockVerData = new SeikyuEditBillingModel();
             InputLockVerData.ID = ID;
             List<SeikyuEditBillingModel> LockVerData = BLL.GetLockVer(InputLockVerData);
 
+            //先にレコード更新されていた場合はエラー
             if(LockVerData[0].LockVer != LockVer)
             {
                 MessageBox.Show("エラーが発生しました");
@@ -260,6 +262,7 @@ namespace BillingSystem
                 return;
             } 
 
+            //バリデーション
             validation();
             if (errorFlg == true)
             {
@@ -269,6 +272,7 @@ namespace BillingSystem
 
             var aaa = LoginInfo.LoginID;
 
+            //入力値取得
             DateTime BillingDate = DateTime.Parse(DtbBillingDate.Text);
             string BillingNo = TxtBillingNo.Text;
             string BranchNo = TxtBranchNo.Text;
@@ -296,8 +300,14 @@ namespace BillingSystem
             UpdateData.PaymentType = PaymentType;
             UpdateData.ID = ID;
 
-
             int aa = BLL.BillingUpdate(UpdateData);
+
+            //LockVerに+1
+            SeikyuEditBillingModel UpdateLockVerParam = new SeikyuEditBillingModel();
+            UpdateLockVerParam.LockVer = LockVer+1;
+            UpdateLockVerParam.ID = ID;
+            BLL.LockVerUpdate(UpdateLockVerParam);
+
             this.Close();
 
         }

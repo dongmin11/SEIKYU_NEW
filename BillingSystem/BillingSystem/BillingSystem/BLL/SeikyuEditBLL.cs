@@ -276,5 +276,20 @@ namespace BillingSystem.BLL
 
         }
         #endregion
+
+        #region LockVer更新
+
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public int LockVerUpdate(SeikyuEditBillingModel inputData)
+        {
+            CommonDelegateSetSqlContext context = new CommonDelegateSetSqlContext(dal.SetSqlContext);
+            int result = CallHeavyBusinessLogic(() => dal.LockVerUpdate(inputData), context);
+
+            return result;
+        }
+        #endregion
     }
 }

@@ -472,5 +472,30 @@ namespace BillingSystem.DAL
         }
         #endregion
 
+
+        #region LockVer更新
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public int LockVerUpdate(SeikyuEditBillingModel inputData)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            // アップデート
+            sb.Append(" UPDATE T_Billing");
+            sb.Append("    SET LockVer = @LockVer");
+            sb.Append(" WHERE ID = @ID");
+
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(inputData);
+            // SQL文実行
+            int result = RunSqlInt(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            return result;
+        }
+        #endregion
+
     }
 }
