@@ -29,6 +29,9 @@ namespace BillingSystem.DAL
             sb.Append("     ,ID");
             sb.Append(" FROM");
             sb.Append("     [dbo].[M_BankAccount]");
+            sb.Append(" WHERE");
+            sb.Append("     DeleteFlag = 0");
+
 
             #endregion
             // パラメータ設定
@@ -85,6 +88,8 @@ namespace BillingSystem.DAL
             sb.Append("     ,CustomeID");
             sb.Append(" FROM");
             sb.Append("     [dbo].[M_Department]");
+            sb.Append(" WHERE");
+            sb.Append("     DeleteFlag = 0");
 
             #endregion
             // パラメータ設定
@@ -114,6 +119,8 @@ namespace BillingSystem.DAL
             sb.Append("     ,ID");
             sb.Append(" FROM");
             sb.Append("     M_User");
+            sb.Append(" WHERE");
+            sb.Append("     DeleteFlag = 0");
 
             #endregion
             // パラメータ設定
@@ -142,6 +149,8 @@ namespace BillingSystem.DAL
             sb.Append("     ,Type");
             sb.Append(" FROM");
             sb.Append("     M_PaymentType");
+            sb.Append(" WHERE");
+            sb.Append("     DeleteFlag = 0");
 
             #endregion
             // パラメータ設定
@@ -169,6 +178,8 @@ namespace BillingSystem.DAL
             sb.Append("     ,OrderNo");
             sb.Append(" FROM");
             sb.Append("     M_Project");
+            sb.Append(" WHERE");
+            sb.Append("     DeleteFlag = 0");
 
             #endregion
             // パラメータ設定
@@ -205,10 +216,13 @@ namespace BillingSystem.DAL
             sb.Append("     ,ProjectAdd");
             sb.Append("     ,Deliverables");
             sb.Append("     ,PaymentType");
+            sb.Append("     ,LockVer");
             sb.Append(" FROM");
             sb.Append("     T_Billing");
             sb.Append(" WHERE");
             sb.Append("     T_Billing.ID = @ID");
+            sb.Append(" AND");
+            sb.Append("     DeleteFlag = 0");
 
             #endregion
             // パラメータ設定
@@ -247,6 +261,8 @@ namespace BillingSystem.DAL
             sb.Append("     T_BillingDetail");
             sb.Append(" WHERE");
             sb.Append("     T_BillingDetail.BillingID = @ID");
+            sb.Append(" AND");
+            sb.Append("     DeleteFlag = 0");
 
             #endregion
             // パラメータ設定
@@ -318,8 +334,21 @@ namespace BillingSystem.DAL
             sb.Append("       ,ProjectAdd");
             sb.Append("       ,Deliverables");
             sb.Append("       ,PaymentType");
-            sb.Append("       ,BankAccountID)");
-            sb.Append("       VALUES");
+            sb.Append("       ,BankAccountID");
+            sb.Append("       ,CustomerName");
+            sb.Append("       ,ProjectName");
+            sb.Append("       ,PaymentTypeName");
+            sb.Append("       ,PaymentDate");
+            sb.Append("       ,BillingAmount");
+            sb.Append("       ,Tax");
+            sb.Append("       ,BillingTax");
+            sb.Append("       ,TransportationAmount");
+            sb.Append("       ,BillingTotal");
+            sb.Append("       ,DepartmentName");
+            sb.Append("       ,Status");
+            sb.Append("       ,CreatDateTime)");
+   
+            sb.Append(" VALUES");
             sb.Append("       (@BillingDate");
             sb.Append("       ,@BillingFromDate");
             sb.Append("       ,@BillingToDate");
@@ -332,7 +361,20 @@ namespace BillingSystem.DAL
             sb.Append("       ,@ProjectAdd");
             sb.Append("       ,@Deliverables");
             sb.Append("       ,@PaymentType");
-            sb.Append("       ,@BankAccountID)");
+            sb.Append("       ,@BankAccountID");
+            sb.Append("       ,@CustomerName");
+            sb.Append("       ,@ProjectName");
+            sb.Append("       ,@PaymentTypeName");
+            sb.Append("       ,@PaymentDate");
+            sb.Append("       ,@BillingAmount");
+            sb.Append("       ,@Tax");
+            sb.Append("       ,@BillingTax");
+            sb.Append("       ,@TransportationAmount");
+            sb.Append("       ,@BillingTotal");
+            sb.Append("       ,@DepartmentName");
+            sb.Append("       ,@Status");
+            sb.Append("       ,GETDATE())");
+
 
             #endregion
             // パラメータ設定
@@ -344,6 +386,91 @@ namespace BillingSystem.DAL
         }
         #endregion
 
+        #region CustomeID関係個所取得
+        /// <summary>
+        /// 顧客名一覧を取得
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<CustomeModel> ChangeCustomeName(CustomeModel inputData)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" SELECT");
+            sb.Append("     M_Department.ID");
+            sb.Append("     ,M_Project.OrderNo");
+            sb.Append("     ,M_Project.ProjectContent");
+            sb.Append("     ,M_Project.ProjectAdd");
+            sb.Append("     ,M_Project.Deliverables");
+            sb.Append(" FROM M_Department");
+            sb.Append(" LEFT JOIN M_Project");
+            sb.Append("     ON M_Project.CustomeID = @ID");
+            sb.Append(" WHERE");
+            sb.Append("     M_Department.ID = @ID");
+
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(inputData);
+            // SQL文実行
+            DataTable dt = RunSqlDataTable(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            var result = ConvertDataTableToListClass<CustomeModel>(dt);
+
+            return result;
+        }
+        #endregion
+
+
+        #region 請求レコード削除
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public int BillingDelete(SeikyuEditBillingModel inputData)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            // アップデート
+            sb.Append(" UPDATE T_Billing");
+            sb.Append("    SET DeleteFlag = 1");
+            sb.Append(" WHERE ID = @ID");
+
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(inputData);
+            // SQL文実行
+            int result = RunSqlInt(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            return result;
+        }
+        #endregion
+
+        #region 排他処理
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditBillingModel> GetLockVer(SeikyuEditBillingModel inputData)
+        {
+            #region SQL文            
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" SELECT");
+            sb.Append("     LockVer");
+            sb.Append(" FROM T_Billing");
+            sb.Append(" WHERE");
+            sb.Append("  　　ID = @ID");
+
+            #endregion
+            // パラメータ設定
+            SqlParameter[] parms = GetSqlParameters(inputData);
+            // SQL文実行
+            DataTable dt = RunSqlDataTable(sb.ToString(), parms);
+            // データテーブルをクラスリストに変換する
+            var result = ConvertDataTableToListClass<SeikyuEditBillingModel>(dt);
+
+            return result;
+        }
+        #endregion
 
     }
 }

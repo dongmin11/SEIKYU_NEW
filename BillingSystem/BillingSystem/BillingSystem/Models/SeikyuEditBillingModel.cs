@@ -127,6 +127,26 @@ namespace BillingSystem.Models
         /// </summary>
         /// 
         public string UserName { get; set; }
+        /// <summary>
+        /// 担当者
+        /// </summary>
+        /// 
+        public string PDFFile { get; set; }
+        /// <summary>
+        /// 担当者
+        /// </summary>
+        /// 
+        public string CreateDateTime { get; set; }
+        /// <summary>
+        /// 担当者
+        /// </summary>
+        /// 
+        public string CreateUserID { get; set; }
+        /// <summary>
+        /// 排他機能
+        /// </summary>
+        ///
+        public int LockVer { get; set; }
 
     }
 }

@@ -219,19 +219,62 @@ namespace BillingSystem.BLL
         }
         #endregion
 
-        //#region 請求先変更時必要値取得
+        #region 請求追加
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<CustomeModel> ChangeCustomerName(CustomeModel inputData)
+        {
+            var selectList = new List<CustomeModel>();
 
-        ///// <summary>
-        ///// </summary>
-        ///// <param name="inputData"></param>
-        ///// <returns></returns>
-        //public int ChangeCustomName(SeikyuEditBillingModel inputData)
-        //{
-        //    CommonDelegateSetSqlContext context = new CommonDelegateSetSqlContext(dal.SetSqlContext);
-        //    int result = CallHeavyBusinessLogic(() => dal.ChangeCustomName(inputData), context);
+            CommonDelegateSetSqlContext context = new CommonDelegateSetSqlContext(dal.SetSqlContext);
+            List<CustomeModel> list = CallHeavyBusinessLogic(() => dal.ChangeCustomeName(inputData), context);
 
-        //    return result;
-        //}
-        //#endregion
+            if (list != null)
+            {
+                return list;
+            }
+
+            return null;
+        }
+        #endregion
+
+        #region 請求削除
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public int BillingDelete(SeikyuEditBillingModel inputData)
+        {
+            CommonDelegateSetSqlContext context = new CommonDelegateSetSqlContext(dal.SetSqlContext);
+            int result = CallHeavyBusinessLogic(() => dal.BillingDelete(inputData), context);
+
+            return result;
+        }
+        #endregion
+
+
+        #region 請求追加
+        /// <summary>
+        /// </summary>
+        /// <param name="inputData"></param>
+        /// <returns></returns>
+        public List<SeikyuEditBillingModel> GetLockVer(SeikyuEditBillingModel inputData)
+        {
+            var selectList = new List<CustomeModel>();
+
+            CommonDelegateSetSqlContext context = new CommonDelegateSetSqlContext(dal.SetSqlContext);
+            List<SeikyuEditBillingModel> list = CallHeavyBusinessLogic(() => dal.GetLockVer(inputData), context);
+
+            if (list != null)
+            {
+                return list;
+            }
+
+            return null;
+
+        }
+        #endregion
     }
 }

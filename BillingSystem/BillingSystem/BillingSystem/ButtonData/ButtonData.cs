@@ -112,7 +112,7 @@ namespace BillingSystem
                     buttion = new ButtonInfo();
                     buttion.ButtonName = "BtnDelete";
                     buttion.ButtonText = "削除";
-                    buttion.ButtonEnabled = false;
+                    buttion.ButtonEnabled = true;
                     results.Add(buttion);
                     break;
                 case "1":

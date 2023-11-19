@@ -8,7 +8,7 @@
         /// <summary>
         /// ID
         /// </summary>
-        public int ID { get; set; }
+        public string ID { get; set; }
         /// <summary>
         /// ログインID
         /// </summary>

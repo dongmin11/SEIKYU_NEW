@@ -14,7 +14,7 @@ namespace BillingSystem.Models
         /// <summary>
         /// 請求先ID
         /// </summary>
-        public decimal CustomeID { get; set; }
+        public string CustomeID { get; set; }
 
         /// <summary>
         /// 部署名

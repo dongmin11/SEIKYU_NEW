@@ -51,37 +51,37 @@ namespace BillingSystem
                 //if (AccountData != null)
                 //{
                 //    // ログイン正常の場合、アカウント情報設定する
-                    //LoginInfo.ID = AccountData.ID;
-                    //LoginInfo.LoginID = AccountData.LoginID;
-                    //LoginInfo.UserName = AccountData.UserName;
-                    //LoginInfo.Password = AccountData.Password;
-                    //LoginInfo.UserNameKana = AccountData.UserNameKana;
-                    //LoginInfo.UserShortName = AccountData.UserShortName;
-                    //LoginInfo.Department = AccountData.Department;
-                    //LoginInfo.AuthorityFlag = AccountData.AuthorityFlag;
-                    //LoginInfo.Note = AccountData.Note;
-                    //LoginInfo.DeleteFlag = AccountData.DeleteFlag;
-                    //LoginInfo.LockVer = AccountData.LockVer;
-                    //LoginInfo.SealName = AccountData.SealName;
+                //    LoginInfo.ID = AccountData.ID;
+                //    LoginInfo.LoginID = AccountData.LoginID;
+                //    LoginInfo.UserName = AccountData.UserName;
+                //    LoginInfo.Password = AccountData.Password;
+                //    LoginInfo.UserNameKana = AccountData.UserNameKana;
+                //    LoginInfo.UserShortName = AccountData.UserShortName;
+                //    LoginInfo.Department = AccountData.Department;
+                //    LoginInfo.AuthorityFlag = AccountData.AuthorityFlag;
+                //    LoginInfo.Note = AccountData.Note;
+                //    LoginInfo.DeleteFlag = AccountData.DeleteFlag;
+                //    LoginInfo.LockVer = AccountData.LockVer;
+                //    LoginInfo.SealName = AccountData.SealName;
 
-                    //会社情報取得
-                    //CompanyBLL companyBll = new CompanyBLL();
-                    //var companyData = companyBll.GetCompanyInfo(new CompanyModel());
-                    //if (companyData != null)
-                    //{
-                    //    CompanyInfo.ID = companyData.ID;
-                    //    CompanyInfo.CompanyName = companyData.CompanyName;
-                    //    CompanyInfo.PostNo = companyData.PostNo;
-                    //    CompanyInfo.Address = companyData.Address;
-                    //    CompanyInfo.Tel = companyData.Tel;
-                    //    CompanyInfo.Tax = companyData.Tax;
-                    //    CompanyInfo.Fraction = companyData.Fraction;
-                    //    CompanyInfo.InvoiceNo = companyData.InvoiceNo;
-                    //    CompanyInfo.CompanySealID = companyData.CompanySealID.NullToString();
-                    //    CompanyInfo.CompanySealName = companyData.CompanySealName;
-                    //}
-                    ////画像ダウンロード
-                    //this.DownloadSealFile();
+                //    //会社情報取得
+                //    CompanyBLL companyBll = new CompanyBLL();
+                //    var companyData = companyBll.GetCompanyInfo(new CompanyModel());
+                //    if (companyData != null)
+                //    {
+                //        CompanyInfo.ID = companyData.ID;
+                //        CompanyInfo.CompanyName = companyData.CompanyName;
+                //        CompanyInfo.PostNo = companyData.PostNo;
+                //        CompanyInfo.Address = companyData.Address;
+                //        CompanyInfo.Tel = companyData.Tel;
+                //        CompanyInfo.Tax = companyData.Tax;
+                //        CompanyInfo.Fraction = companyData.Fraction;
+                //        CompanyInfo.InvoiceNo = companyData.InvoiceNo;
+                //        CompanyInfo.CompanySealID = companyData.CompanySealID.NullToString();
+                //        CompanyInfo.CompanySealName = companyData.CompanySealName;
+                //    }
+                //    //画像ダウンロード
+                //    this.DownloadSealFile();
 
                     this.Hide();
                     MenuMainFrm menuFrm = new MenuMainFrm();

@@ -29,20 +29,20 @@ namespace BillingSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TxtBranchNo = new System.Windows.Forms.TextBox();
             this.TxtBillingNo = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -100,188 +100,166 @@ namespace BillingSystem
             // 
             // LblProcessName
             // 
-            this.LblProcessName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.LblProcessName.Size = new System.Drawing.Size(946, 50);
+            this.LblProcessName.Size = new System.Drawing.Size(788, 40);
             // 
             // LblLoginUserName
             // 
-            this.LblLoginUserName.Location = new System.Drawing.Point(1321, 20);
-            this.LblLoginUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblLoginUserName.Size = new System.Drawing.Size(154, 25);
+            this.LblLoginUserName.Location = new System.Drawing.Point(1101, 16);
             // 
             // TxtBranchNo
             // 
-            this.TxtBranchNo.Location = new System.Drawing.Point(600, 55);
-            this.TxtBranchNo.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtBranchNo.Location = new System.Drawing.Point(500, 44);
             this.TxtBranchNo.Name = "TxtBranchNo";
-            this.TxtBranchNo.Size = new System.Drawing.Size(48, 33);
+            this.TxtBranchNo.Size = new System.Drawing.Size(41, 28);
             this.TxtBranchNo.TabIndex = 48;
             this.TxtBranchNo.Text = "001";
             // 
             // TxtBillingNo
             // 
-            this.TxtBillingNo.Location = new System.Drawing.Point(431, 55);
-            this.TxtBillingNo.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtBillingNo.Location = new System.Drawing.Point(359, 44);
             this.TxtBillingNo.Name = "TxtBillingNo";
-            this.TxtBillingNo.Size = new System.Drawing.Size(140, 33);
+            this.TxtBillingNo.Size = new System.Drawing.Size(117, 28);
             this.TxtBillingNo.TabIndex = 47;
             this.TxtBillingNo.Text = "NII202310";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(578, 62);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Location = new System.Drawing.Point(482, 50);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(21, 25);
+            this.label22.Size = new System.Drawing.Size(16, 20);
             this.label22.TabIndex = 49;
             this.label22.Text = "-";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(348, 62);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Location = new System.Drawing.Point(290, 50);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(79, 25);
+            this.label21.Size = new System.Drawing.Size(63, 20);
             this.label21.TabIndex = 46;
             this.label21.Text = "請求No";
             // 
             // DtpProjectEndDate
             // 
             this.DtpProjectEndDate.CustomFormat = "";
-            this.DtpProjectEndDate.Location = new System.Drawing.Point(1032, 172);
-            this.DtpProjectEndDate.Margin = new System.Windows.Forms.Padding(4);
+            this.DtpProjectEndDate.Location = new System.Drawing.Point(860, 138);
             this.DtpProjectEndDate.Name = "DtpProjectEndDate";
-            this.DtpProjectEndDate.Size = new System.Drawing.Size(208, 33);
+            this.DtpProjectEndDate.Size = new System.Drawing.Size(174, 28);
             this.DtpProjectEndDate.TabIndex = 45;
             // 
             // DtbBillingDate
             // 
-            this.DtbBillingDate.Location = new System.Drawing.Point(113, 55);
-            this.DtbBillingDate.Margin = new System.Windows.Forms.Padding(4);
+            this.DtbBillingDate.Location = new System.Drawing.Point(94, 44);
             this.DtbBillingDate.Name = "DtbBillingDate";
-            this.DtbBillingDate.Size = new System.Drawing.Size(202, 33);
+            this.DtbBillingDate.Size = new System.Drawing.Size(169, 28);
             this.DtbBillingDate.TabIndex = 44;
             // 
             // DtpProjectStartDate
             // 
-            this.DtpProjectStartDate.Location = new System.Drawing.Point(785, 175);
-            this.DtpProjectStartDate.Margin = new System.Windows.Forms.Padding(4);
+            this.DtpProjectStartDate.Location = new System.Drawing.Point(654, 140);
             this.DtpProjectStartDate.Name = "DtpProjectStartDate";
-            this.DtpProjectStartDate.Size = new System.Drawing.Size(202, 33);
+            this.DtpProjectStartDate.Size = new System.Drawing.Size(169, 28);
             this.DtpProjectStartDate.TabIndex = 43;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(671, 140);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(559, 112);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(112, 25);
+            this.label10.Size = new System.Drawing.Size(89, 20);
             this.label10.TabIndex = 42;
             this.label10.Text = "発注書番号";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(671, 222);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(559, 178);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(72, 25);
+            this.label12.Size = new System.Drawing.Size(57, 20);
             this.label12.TabIndex = 41;
             this.label12.Text = "成果物";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(671, 262);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(559, 210);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(112, 25);
+            this.label14.Size = new System.Drawing.Size(89, 20);
             this.label14.TabIndex = 40;
             this.label14.Text = "振込先口座";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(14, 259);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(12, 207);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(92, 25);
+            this.label13.Size = new System.Drawing.Size(73, 20);
             this.label13.TabIndex = 39;
             this.label13.Text = "支払条件";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 222);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(12, 178);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(92, 25);
+            this.label9.Size = new System.Drawing.Size(73, 20);
             this.label9.TabIndex = 38;
             this.label9.Text = "作業場所";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(671, 185);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(559, 148);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(92, 25);
+            this.label11.Size = new System.Drawing.Size(73, 20);
             this.label11.TabIndex = 37;
             this.label11.Text = "作業期間";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 180);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(12, 144);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(92, 25);
+            this.label8.Size = new System.Drawing.Size(73, 20);
             this.label8.TabIndex = 36;
             this.label8.Text = "作業内容";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(995, 180);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(829, 144);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 25);
+            this.label7.Size = new System.Drawing.Size(25, 20);
             this.label7.TabIndex = 35;
             this.label7.Text = "～";
             // 
             // TxtDelivarables
             // 
-            this.TxtDelivarables.Location = new System.Drawing.Point(785, 214);
-            this.TxtDelivarables.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtDelivarables.Location = new System.Drawing.Point(654, 171);
             this.TxtDelivarables.Name = "TxtDelivarables";
-            this.TxtDelivarables.Size = new System.Drawing.Size(455, 33);
+            this.TxtDelivarables.Size = new System.Drawing.Size(380, 28);
             this.TxtDelivarables.TabIndex = 33;
             // 
             // TxtProjectAdd
             // 
-            this.TxtProjectAdd.Location = new System.Drawing.Point(113, 215);
-            this.TxtProjectAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtProjectAdd.Location = new System.Drawing.Point(94, 172);
             this.TxtProjectAdd.Name = "TxtProjectAdd";
-            this.TxtProjectAdd.Size = new System.Drawing.Size(539, 33);
+            this.TxtProjectAdd.Size = new System.Drawing.Size(450, 28);
             this.TxtProjectAdd.TabIndex = 32;
             // 
             // TxtOrderNo
             // 
-            this.TxtOrderNo.Location = new System.Drawing.Point(785, 136);
-            this.TxtOrderNo.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtOrderNo.Location = new System.Drawing.Point(654, 109);
             this.TxtOrderNo.Name = "TxtOrderNo";
-            this.TxtOrderNo.Size = new System.Drawing.Size(455, 33);
+            this.TxtOrderNo.Size = new System.Drawing.Size(380, 28);
             this.TxtOrderNo.TabIndex = 31;
             // 
             // TxtProjectContent
             // 
-            this.TxtProjectContent.Location = new System.Drawing.Point(113, 175);
-            this.TxtProjectContent.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtProjectContent.Location = new System.Drawing.Point(94, 140);
             this.TxtProjectContent.Name = "TxtProjectContent";
-            this.TxtProjectContent.Size = new System.Drawing.Size(539, 33);
+            this.TxtProjectContent.Size = new System.Drawing.Size(450, 28);
             this.TxtProjectContent.TabIndex = 30;
             // 
             // CmbProjectName
@@ -290,10 +268,9 @@ namespace BillingSystem
             this.CmbProjectName.FormattingEnabled = true;
             this.CmbProjectName.Items.AddRange(new object[] {
             "請求先A"});
-            this.CmbProjectName.Location = new System.Drawing.Point(113, 135);
-            this.CmbProjectName.Margin = new System.Windows.Forms.Padding(4);
+            this.CmbProjectName.Location = new System.Drawing.Point(94, 108);
             this.CmbProjectName.Name = "CmbProjectName";
-            this.CmbProjectName.Size = new System.Drawing.Size(539, 33);
+            this.CmbProjectName.Size = new System.Drawing.Size(450, 28);
             this.CmbProjectName.TabIndex = 29;
             this.CmbProjectName.ValueMember = "OrderNo";
             // 
@@ -303,10 +280,9 @@ namespace BillingSystem
             this.CmbDepartment.FormattingEnabled = true;
             this.CmbDepartment.Items.AddRange(new object[] {
             "請求先A"});
-            this.CmbDepartment.Location = new System.Drawing.Point(785, 98);
-            this.CmbDepartment.Margin = new System.Windows.Forms.Padding(4);
+            this.CmbDepartment.Location = new System.Drawing.Point(654, 78);
             this.CmbDepartment.Name = "CmbDepartment";
-            this.CmbDepartment.Size = new System.Drawing.Size(455, 33);
+            this.CmbDepartment.Size = new System.Drawing.Size(380, 28);
             this.CmbDepartment.TabIndex = 28;
             this.CmbDepartment.ValueMember = "CustomeID";
             // 
@@ -316,10 +292,9 @@ namespace BillingSystem
             this.CmbPaymentType.FormattingEnabled = true;
             this.CmbPaymentType.Items.AddRange(new object[] {
             "請求先A"});
-            this.CmbPaymentType.Location = new System.Drawing.Point(113, 255);
-            this.CmbPaymentType.Margin = new System.Windows.Forms.Padding(4);
+            this.CmbPaymentType.Location = new System.Drawing.Point(94, 204);
             this.CmbPaymentType.Name = "CmbPaymentType";
-            this.CmbPaymentType.Size = new System.Drawing.Size(539, 33);
+            this.CmbPaymentType.Size = new System.Drawing.Size(450, 28);
             this.CmbPaymentType.TabIndex = 27;
             this.CmbPaymentType.ValueMember = "Type";
             // 
@@ -330,51 +305,45 @@ namespace BillingSystem
             this.CmbCustomerName.FormattingEnabled = true;
             this.CmbCustomerName.Items.AddRange(new object[] {
             "請求先A"});
-            this.CmbCustomerName.Location = new System.Drawing.Point(113, 95);
-            this.CmbCustomerName.Margin = new System.Windows.Forms.Padding(4);
+            this.CmbCustomerName.Location = new System.Drawing.Point(94, 76);
             this.CmbCustomerName.Name = "CmbCustomerName";
-            this.CmbCustomerName.Size = new System.Drawing.Size(539, 33);
+            this.CmbCustomerName.Size = new System.Drawing.Size(450, 28);
             this.CmbCustomerName.TabIndex = 26;
             this.CmbCustomerName.ValueMember = "ID";
-            this.CmbCustomerName.SelectedIndexChanged += new System.EventHandler(this.ChangeCustomerName);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(671, 95);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(559, 76);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 25);
+            this.label5.Size = new System.Drawing.Size(41, 20);
             this.label5.TabIndex = 24;
             this.label5.Text = "部署";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 138);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(12, 110);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 25);
+            this.label6.Size = new System.Drawing.Size(41, 20);
             this.label6.TabIndex = 23;
             this.label6.Text = "件名";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(14, 62);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Location = new System.Drawing.Point(12, 50);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(72, 25);
+            this.label20.Size = new System.Drawing.Size(57, 20);
             this.label20.TabIndex = 25;
             this.label20.Text = "請求日";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 101);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(12, 81);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 25);
+            this.label4.Size = new System.Drawing.Size(57, 20);
             this.label4.TabIndex = 22;
             this.label4.Text = "請求先";
             // 
@@ -384,20 +353,18 @@ namespace BillingSystem
             this.CmbBankAccount.FormattingEnabled = true;
             this.CmbBankAccount.Items.AddRange(new object[] {
             "請求先A"});
-            this.CmbBankAccount.Location = new System.Drawing.Point(785, 252);
-            this.CmbBankAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.CmbBankAccount.Location = new System.Drawing.Point(654, 202);
             this.CmbBankAccount.Name = "CmbBankAccount";
-            this.CmbBankAccount.Size = new System.Drawing.Size(455, 33);
+            this.CmbBankAccount.Size = new System.Drawing.Size(380, 28);
             this.CmbBankAccount.TabIndex = 27;
             this.CmbBankAccount.ValueMember = "ID";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(671, 62);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(559, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 25);
+            this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 24;
             this.label1.Text = "担当者";
             // 
@@ -407,10 +374,9 @@ namespace BillingSystem
             this.CmbManagerName.FormattingEnabled = true;
             this.CmbManagerName.Items.AddRange(new object[] {
             "請求先A"});
-            this.CmbManagerName.Location = new System.Drawing.Point(785, 59);
-            this.CmbManagerName.Margin = new System.Windows.Forms.Padding(4);
+            this.CmbManagerName.Location = new System.Drawing.Point(654, 47);
             this.CmbManagerName.Name = "CmbManagerName";
-            this.CmbManagerName.Size = new System.Drawing.Size(455, 33);
+            this.CmbManagerName.Size = new System.Drawing.Size(380, 28);
             this.CmbManagerName.TabIndex = 28;
             this.CmbManagerName.ValueMember = "ID";
             // 
@@ -418,8 +384,8 @@ namespace BillingSystem
             // 
             this.DgbBillingDetail.AllowUserToAddRows = false;
             this.DgbBillingDetail.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.White;
-            this.DgbBillingDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
+            this.DgbBillingDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
             this.DgbBillingDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -438,23 +404,22 @@ namespace BillingSystem
             this.c,
             this.Doc,
             this.Column4});
-            this.DgbBillingDetail.Location = new System.Drawing.Point(10, 295);
-            this.DgbBillingDetail.Margin = new System.Windows.Forms.Padding(4);
+            this.DgbBillingDetail.Location = new System.Drawing.Point(8, 236);
             this.DgbBillingDetail.Name = "DgbBillingDetail";
             this.DgbBillingDetail.ReadOnly = true;
             this.DgbBillingDetail.RowHeadersWidth = 51;
-            dataGridViewCellStyle56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.DgbBillingDetail.RowsDefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.DgbBillingDetail.RowsDefaultCellStyle = dataGridViewCellStyle42;
             this.DgbBillingDetail.RowTemplate.Height = 21;
             this.DgbBillingDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgbBillingDetail.Size = new System.Drawing.Size(1531, 438);
+            this.DgbBillingDetail.Size = new System.Drawing.Size(1276, 350);
             this.DgbBillingDetail.TabIndex = 50;
             // 
             // 作業担当者
             // 
             this.作業担当者.DataPropertyName = "EmployeeName";
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.作業担当者.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.作業担当者.DefaultCellStyle = dataGridViewCellStyle30;
             this.作業担当者.HeaderText = "作業担当者";
             this.作業担当者.MinimumWidth = 6;
             this.作業担当者.Name = "作業担当者";
@@ -464,8 +429,8 @@ namespace BillingSystem
             // Column1
             // 
             this.Column1.DataPropertyName = "WorkingHours";
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle31;
             this.Column1.HeaderText = "勤務時間";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -475,10 +440,10 @@ namespace BillingSystem
             // Column2
             // 
             this.Column2.DataPropertyName = "BasicAmount";
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle46.Format = "N0";
-            dataGridViewCellStyle46.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle32.Format = "N0";
+            dataGridViewCellStyle32.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle32;
             this.Column2.HeaderText = "基本月額(円)";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -488,8 +453,8 @@ namespace BillingSystem
             // Column3
             // 
             this.Column3.DataPropertyName = "LowerLimitName";
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle33;
             this.Column3.HeaderText = "過不足下限";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -499,10 +464,10 @@ namespace BillingSystem
             // Column5
             // 
             this.Column5.DataPropertyName = "LowerLimitUnit";
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle48.Format = "N0";
-            dataGridViewCellStyle48.NullValue = null;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle34.Format = "N0";
+            dataGridViewCellStyle34.NullValue = null;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle34;
             this.Column5.HeaderText = "過不足下限単価";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -512,10 +477,10 @@ namespace BillingSystem
             // 過不足下限金額
             // 
             this.過不足下限金額.DataPropertyName = "LowerLimitAmount";
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle49.Format = "N0";
-            dataGridViewCellStyle49.NullValue = null;
-            this.過不足下限金額.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle35.Format = "N0";
+            dataGridViewCellStyle35.NullValue = null;
+            this.過不足下限金額.DefaultCellStyle = dataGridViewCellStyle35;
             this.過不足下限金額.HeaderText = "過不足下限金額";
             this.過不足下限金額.MinimumWidth = 6;
             this.過不足下限金額.Name = "過不足下限金額";
@@ -526,8 +491,8 @@ namespace BillingSystem
             // 
             this.過不足上限.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.過不足上限.DataPropertyName = "UpperLimitName";
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.過不足上限.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.過不足上限.DefaultCellStyle = dataGridViewCellStyle36;
             this.過不足上限.HeaderText = "過不足上限";
             this.過不足上限.MinimumWidth = 6;
             this.過不足上限.Name = "過不足上限";
@@ -537,10 +502,10 @@ namespace BillingSystem
             // Column6
             // 
             this.Column6.DataPropertyName = "UpperLimitUnit";
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle51.Format = "N0";
-            dataGridViewCellStyle51.NullValue = null;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle37.Format = "N0";
+            dataGridViewCellStyle37.NullValue = null;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle37;
             this.Column6.HeaderText = "過不足上限単価";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
@@ -550,10 +515,10 @@ namespace BillingSystem
             // 過不足上限ｄ
             // 
             this.過不足上限ｄ.DataPropertyName = "UpperLimitAmount";
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle52.Format = "N0";
-            dataGridViewCellStyle52.NullValue = null;
-            this.過不足上限ｄ.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle38.Format = "N0";
+            dataGridViewCellStyle38.NullValue = null;
+            this.過不足上限ｄ.DefaultCellStyle = dataGridViewCellStyle38;
             this.過不足上限ｄ.HeaderText = "過不足上限金額";
             this.過不足上限ｄ.MinimumWidth = 6;
             this.過不足上限ｄ.Name = "過不足上限ｄ";
@@ -562,10 +527,10 @@ namespace BillingSystem
             // 
             // c
             // 
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle53.Format = "N0";
-            dataGridViewCellStyle53.NullValue = null;
-            this.c.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle39.Format = "N0";
+            dataGridViewCellStyle39.NullValue = null;
+            this.c.DefaultCellStyle = dataGridViewCellStyle39;
             this.c.HeaderText = "過不足金額";
             this.c.MinimumWidth = 6;
             this.c.Name = "c";
@@ -577,10 +542,10 @@ namespace BillingSystem
             // Doc
             // 
             this.Doc.DataPropertyName = "BillingAmount";
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle54.Format = "N0";
-            dataGridViewCellStyle54.NullValue = null;
-            this.Doc.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle40.Format = "N0";
+            dataGridViewCellStyle40.NullValue = null;
+            this.Doc.DefaultCellStyle = dataGridViewCellStyle40;
             this.Doc.HeaderText = "請求金額";
             this.Doc.MinimumWidth = 6;
             this.Doc.Name = "Doc";
@@ -590,10 +555,10 @@ namespace BillingSystem
             // Column4
             // 
             this.Column4.DataPropertyName = "TransportationAmount";
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle55.Format = "N0";
-            dataGridViewCellStyle55.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle41.Format = "N0";
+            dataGridViewCellStyle41.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle41;
             this.Column4.HeaderText = "交通費";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -604,21 +569,19 @@ namespace BillingSystem
             // 
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(692, 754);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(577, 603);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(132, 25);
+            this.label15.Size = new System.Drawing.Size(105, 20);
             this.label15.TabIndex = 59;
             this.label15.Text = "合計請求金額";
             // 
             // TxtAllBillingTotal
             // 
             this.TxtAllBillingTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtAllBillingTotal.Location = new System.Drawing.Point(832, 749);
-            this.TxtAllBillingTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtAllBillingTotal.Location = new System.Drawing.Point(693, 599);
             this.TxtAllBillingTotal.Name = "TxtAllBillingTotal";
             this.TxtAllBillingTotal.ReadOnly = true;
-            this.TxtAllBillingTotal.Size = new System.Drawing.Size(155, 33);
+            this.TxtAllBillingTotal.Size = new System.Drawing.Size(130, 28);
             this.TxtAllBillingTotal.TabIndex = 58;
             this.TxtAllBillingTotal.Text = "0";
             this.TxtAllBillingTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -627,10 +590,9 @@ namespace BillingSystem
             // 
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(262, 754);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Location = new System.Drawing.Point(218, 603);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(72, 25);
+            this.label18.Size = new System.Drawing.Size(57, 20);
             this.label18.TabIndex = 55;
             this.label18.Text = "消費税";
             // 
@@ -638,10 +600,9 @@ namespace BillingSystem
             // 
             this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(14, 754);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(12, 603);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(92, 25);
+            this.label17.Size = new System.Drawing.Size(73, 20);
             this.label17.TabIndex = 56;
             this.label17.Text = "請求金額";
             // 
@@ -649,21 +610,19 @@ namespace BillingSystem
             // 
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(484, 755);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Location = new System.Drawing.Point(403, 604);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(72, 25);
+            this.label19.Size = new System.Drawing.Size(57, 20);
             this.label19.TabIndex = 57;
             this.label19.Text = "交通費";
             // 
             // TxtAllBillingTax
             // 
             this.TxtAllBillingTax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtAllBillingTax.Location = new System.Drawing.Point(337, 749);
-            this.TxtAllBillingTax.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtAllBillingTax.Location = new System.Drawing.Point(281, 599);
             this.TxtAllBillingTax.Name = "TxtAllBillingTax";
             this.TxtAllBillingTax.ReadOnly = true;
-            this.TxtAllBillingTax.Size = new System.Drawing.Size(139, 33);
+            this.TxtAllBillingTax.Size = new System.Drawing.Size(116, 28);
             this.TxtAllBillingTax.TabIndex = 52;
             this.TxtAllBillingTax.Text = "0";
             this.TxtAllBillingTax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -671,11 +630,10 @@ namespace BillingSystem
             // TxtAllBillingTransportion
             // 
             this.TxtAllBillingTransportion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtAllBillingTransportion.Location = new System.Drawing.Point(554, 750);
-            this.TxtAllBillingTransportion.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtAllBillingTransportion.Location = new System.Drawing.Point(462, 600);
             this.TxtAllBillingTransportion.Name = "TxtAllBillingTransportion";
             this.TxtAllBillingTransportion.ReadOnly = true;
-            this.TxtAllBillingTransportion.Size = new System.Drawing.Size(130, 33);
+            this.TxtAllBillingTransportion.Size = new System.Drawing.Size(109, 28);
             this.TxtAllBillingTransportion.TabIndex = 53;
             this.TxtAllBillingTransportion.Text = "0";
             this.TxtAllBillingTransportion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -683,11 +641,10 @@ namespace BillingSystem
             // TxtAllBillingAmount
             // 
             this.TxtAllBillingAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TxtAllBillingAmount.Location = new System.Drawing.Point(104, 751);
-            this.TxtAllBillingAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtAllBillingAmount.Location = new System.Drawing.Point(87, 601);
             this.TxtAllBillingAmount.Name = "TxtAllBillingAmount";
             this.TxtAllBillingAmount.ReadOnly = true;
-            this.TxtAllBillingAmount.Size = new System.Drawing.Size(133, 33);
+            this.TxtAllBillingAmount.Size = new System.Drawing.Size(112, 28);
             this.TxtAllBillingAmount.TabIndex = 54;
             this.TxtAllBillingAmount.Text = "0";
             this.TxtAllBillingAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -698,17 +655,16 @@ namespace BillingSystem
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.Items.AddRange(new object[] {
             "作成中"});
-            this.comboBox7.Location = new System.Drawing.Point(1298, 62);
-            this.comboBox7.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox7.Location = new System.Drawing.Point(1082, 50);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(245, 33);
+            this.comboBox7.Size = new System.Drawing.Size(205, 28);
             this.comboBox7.TabIndex = 28;
             this.comboBox7.Text = "作成中";
             // 
             // SeikyuEditFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.ClientSize = new System.Drawing.Size(1550, 856);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.ClientSize = new System.Drawing.Size(1292, 685);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.TxtAllBillingTotal);
             this.Controls.Add(this.label18);
@@ -749,7 +705,6 @@ namespace BillingSystem
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label4);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "SeikyuEditFrm";
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label20, 0);

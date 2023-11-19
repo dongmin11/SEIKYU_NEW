@@ -82,6 +82,7 @@
     <Compile Include="DAL\FileDAL.cs" />
     <Compile Include="DAL\SeikyuEditDAL.cs" />
     <Compile Include="Enumerations\EnumCls.cs" />
+    <Compile Include="Models\CustomeModel.cs" />
     <Compile Include="Models\TableModel\FileModel.cs" />
     <Compile Include="Models\TableModel\PaymentTypeModel.cs" />
     <Compile Include="Models\TableModel\BankAccountModel.cs" />
